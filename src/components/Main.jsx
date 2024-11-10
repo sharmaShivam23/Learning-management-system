@@ -3,7 +3,7 @@
 
 import React from 'react';
 import Trending from './Trending';
-import main from '../images/main.png';
+import phone from '../images/phone.png';
 
 const Main = () => {
   return (
@@ -28,7 +28,7 @@ const Main = () => {
         </div>
         
         <div className="rightmain lg:w-5/12 h-full  w-full">
-          <img src={main} className='h-full w-full object-cover' alt="Main" />
+          <img src={phone} className='h-full w-full object-cover' alt="Main" />
         </div>
       </div>
 
