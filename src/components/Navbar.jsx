@@ -1,7 +1,7 @@
 import React from 'react'
 import {  Link } from 'react-router-dom'
-import radio from '../images/radio.png';
-import radio2 from '../images/radio2.png';
+import radio from '../Images/radio.png';
+import radio2 from '../Images/radio2.png';
 
 const Navbar = () => {
   return (

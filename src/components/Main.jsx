@@ -3,7 +3,7 @@
 
 import React from 'react';
 import Trending from './Trending';
-import phone from '../images/phone.png';
+import phone from '../Images/phone.png';
 
 const Main = () => {
   return (
@@ -31,7 +31,7 @@ const Main = () => {
           <img src={phone} className='h-full w-full object-cover' alt="Main" />
         </div>
       </div>
-
+  
       <Trending />
     </>
   );
