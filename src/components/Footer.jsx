@@ -9,7 +9,7 @@ import { IoIosContacts } from "react-icons/io";
 import { FaEnvelopeOpen } from "react-icons/fa";
 import { FaHandPointRight } from "react-icons/fa";
 import { VscDebugBreakpointLog } from "react-icons/vsc";
-import radio2 from '../images/radio2.png';
+import radio2 from '../images/radioo.png';
 
 // const Footer = () => {
 //   let obj1 = ["Big Data Analytics","Machine Learning","Big Data Analytics","Big Data Analytics","Big Data Analytics","Big Data Analytics","Big Data Analytics","Big Data Analytics",]
