@@ -3,14 +3,14 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import Loading from './Loading';
+// import Loading from './Loading';
 import card1 from '../images/card1.png'
 import { GrNext } from "react-icons/gr";
 import { MdAccessTimeFilled } from "react-icons/md";
 import News from '../images/News.jpeg';
 import { IoStar } from "react-icons/io5";
 import Footer from './Footer';
-import { RiLockPasswordFill } from "react-icons/ri";
+// import { RiLockPasswordFill } from "react-icons/ri";
 
 
 export default function Profile() {
