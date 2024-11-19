@@ -3,9 +3,9 @@ import React, { useState } from 'react';
 import { FaUserPlus } from "react-icons/fa";
 import { MdAttachEmail } from "react-icons/md";
 import { RiLockPasswordFill } from "react-icons/ri";
-import google from '../Images/google.png';
+import google from '../images/google.png';
 import axios from 'axios'
-import facebook from '../Images/facebook.png';
+import facebook from '../images/facebook.png';
 
 
 const Signup = () => {

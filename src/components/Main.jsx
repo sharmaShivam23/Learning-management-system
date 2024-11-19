@@ -3,14 +3,14 @@
 
 import React from 'react';
 import Trending from './Trending';
-import phone from '../Images/phone.png';
-import vector1 from '../Images/vector1.png';
-import vector2 from '../Images/vector2.png';
-import thumbup from '../Images/thumbup.png';
-import boy from '../Images/boy.png';
-import crown from '../Images/crown.png';
-import glassesimoji from '../Images/glassesimoji.png';
-import Foating from './FloatingDiv/Foating';
+import phone from '../images/phone.png';
+import vector1 from '../images/vector1.png';
+import vector2 from '../images/vector2.png';
+import thumbup from '../images/thumbup.png';
+import boy from '../images/boy.png';
+import crown from '../images/crown.png';
+import glassesimoji from '../images/glassesimoji.png';
+// import Foating from './FloatingDiv/Foating';
 
 const Main = () => {
   return (

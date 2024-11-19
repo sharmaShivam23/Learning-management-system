@@ -251,7 +251,7 @@
 import React from 'react';
 import { GrNext } from "react-icons/gr";
 import { MdAccessTimeFilled } from "react-icons/md";
-import News from '../Images/News.jpeg';
+import News from '../images/News.jpeg';
 import { IoStar } from "react-icons/io5";
 
 const Show = () => {

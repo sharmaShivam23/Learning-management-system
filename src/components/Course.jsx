@@ -1,5 +1,5 @@
 import React from 'react'
-import boy from '../Images/boy.png';
+import boy from '../images/boy.png';
 import Show from './Show';
 import Learning from './Learning';
 import Footer from './Footer';
