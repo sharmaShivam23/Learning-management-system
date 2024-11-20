@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import {  Link } from 'react-router-dom'
-import radio2 from "../Images/radioo.png"
+import radio2 from "../images/radioo.png"
 import { GiCrossedAxes } from "react-icons/gi";
 
 const Navbar = () => {
