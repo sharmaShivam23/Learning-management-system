@@ -211,24 +211,24 @@ const Navbar = ({ username }) => {
       {/* Mobile Menu */}
       {menu && (
         <div className="list2 fixed z-50 bg-amber-600 h-screen w-7/12 top-0 left-0">
-          <ul className="flex flex-col justify-evenly items-center text-xl font-bold mt-4">
+          <ul className="flex flex-col justify-evenly items-center text-xl font-bold mt-10">
             <li>
               <img src={radio2} alt="Learnify Logo" className='h-16' />
               <div className="text flex justify-center font-bold text-white tracking-wider text-xl">
                 learnify
               </div>
             </li>
-            <li><Link to="/Main">Home</Link></li>
-            <li><Link to="/courses">Courses</Link></li>
-            <li><Link to="/Contact">Contact Us</Link></li>
-            <li><Link to="/profile">Profile</Link></li>
-            <li>
+            <li className='mt-10'><Link to="/Main">Home</Link></li>
+            <li className='mt-10'><Link to="/courses">Courses</Link></li>
+            <li className='mt-10'><Link to="/Contact">Contact Us</Link></li>
+            <li className='mt-10'><Link to="/profile">Profile</Link></li>
+            <li className='mt-10'>
               <button className='bg-orange-900 text-white px-4 py-2 rounded'>
                 <Link to="/Signup">Sign Up</Link>
               </button>
             </li>
             <li>
-              <button className='bg-orange-900 text-white px-4 py-2 rounded'>
+              <button className='bg-orange-900 text-white px-4 py-2 rounded mt-10'>
                 <Link to="/Login">Log in</Link>
               </button>
             </li>
