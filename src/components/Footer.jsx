@@ -160,8 +160,8 @@ const Footer = () => {
   );
 
   return (
-    <div className="mt-10  text-black py-12">
-      <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+    <div className="mt-10  text-black py-12 -z-10 cursor-pointer">
+      <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 -z-10">
         
         {/* Course Sections */}
         <CourseSection title="Data Science & Analytics Courses" />
@@ -179,7 +179,7 @@ const Footer = () => {
 
           {/* Social Icons */}
           <div className="flex justify-center gap-5 mt-8 text-5xl">
-            <FaFacebook className="hover:text-blue-600 transition-all ease-in-out delay-0 duration-1000" aria-label="Facebook" />
+            <FaFacebook  className="hover:text-blue-600 transition-all ease-in-out delay-0 duration-1000" aria-label="Facebook" />
             <IoLogoYoutube className="hover:text-red-700 transition-all ease-in-out delay-0 duration-1000" aria-label="YouTube" />
             <FaLinkedin className="hover:text-blue-800 transition-all ease-in-out delay-0 duration-1000" aria-label="LinkedIn" />
             <FaSquareTwitter className="hover:text-violet-700 transition-all ease-in-out delay-0 duration-1000" aria-label="Twitter" />

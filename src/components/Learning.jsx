@@ -5,8 +5,16 @@ import user from "../images/user.png";
 import certi from "../images/certi.png";
 import clock from "../images/clock.png";
 import call from "../images/call.png";
+import {  useNavigate } from "react-router-dom";
 
 const Learning = () => {
+
+  let navigate = useNavigate()
+
+  function handleContact(){
+    navigate("/Contact")
+  }
+
   let img = [
     {
       img: notes2,
@@ -37,7 +45,7 @@ const Learning = () => {
 
   return (
     <div>
-      <div className="fifth mt-20 bg-red-950 h-auto w-full pb-16 px-16 text-center text-lg text-amber-500 flex items-center flex-col">
+      <div className="fifth mt-20 -z-10 bg-red-950 h-auto w-full pb-16 px-16 text-center text-lg text-amber-500 flex items-center flex-col">
         <h1 className="text-white text-4xl mt-7 hidden sm:block font-bold bg-gradient-to-r from-amber-400 to-amber-700 text-transparent bg-clip-text animate-pulse">
           Learning Aligned with Your Ambitions
         </h1>
@@ -98,7 +106,7 @@ const Learning = () => {
             className="h-20 max-[650px]:h-8 transform hover:scale-110 hover:rotate-45 transition-transform duration-500"
             alt="Call Icon"
           />
-          <button className="flex justify-center items-center max-[650px]:text-lg text-3xl hover:underline hover:scale-105 transition-transform duration-300">
+          <button onClick={handleContact} className="flex justify-center items-center max-[650px]:text-lg text-3xl hover:underline hover:scale-105 transition-transform duration-300">
             Contact Us
           </button>
         </div>

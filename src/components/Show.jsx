@@ -322,7 +322,7 @@ const Show = () => {
   return (
     <>
 
-    <h1 className='text-4xl font-bold text-center mt-16 mb-10'>Explore all new and trending courses</h1>
+    <h1 className='text-4xl font-bold text-center -z-10 mt-16 mb-10'>Explore all new and trending courses</h1>
     <div className="main mt-10 flex flex-wrap sm:flex-nowrap gap-6">
 
       {/* Left Section */}
@@ -340,7 +340,7 @@ const Show = () => {
       </div>
 
       {/* Right Section */}
-      <div className="right flex flex-wrap gap-6 sm:w-2/3 w-full">
+      <div className="right flex flex-wrap gap-6 sm:w-2/3 w-full -z-10">
         {obj.map((item, index) => (
           <div key={index} className="card w-full sm:w-72 flex-grow bg-white  rounded-lg shadow-lg overflow-hidden hover:scale-105 transform transition">
             <img src={item.img} className="h-48 w-full mb-1 object-cover" alt={item.name} />

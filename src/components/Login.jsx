@@ -26,6 +26,7 @@ const Login = () => {
       alert("Login SuccessFull")
     }
      catch (error) {
+      alert("Login fail")
       console.log(error);
       
     }

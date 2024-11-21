@@ -7,7 +7,7 @@ import Footer from './Footer';
 const Course = () => {
   return (
     <>
-      <div className="courses">
+      <div className="courses -z-10">
         <div className="main mt-0 h-auto  gap-11 sm:flex block justify-center items-center">
 
           <div className="left w-full flex justify-start items-center flex-col sm:w-5/12">
@@ -18,7 +18,7 @@ const Course = () => {
             </button>
           </div>
         
-          <div className="right w-full  sm:w-7/12 h-auto  flex justify-center items-center relative mt-10">
+          <div className="right w-full  sm:w-7/12 h-auto  flex justify-center items-center relative mt-10 -z-10">
               <div className="first h-80  sm:ml-0 w-80 rounded-full bg-gradient-to-t from-pink-400 to-violet-500 flex lg:w-[600px] lg:h-[600px] justify-center items-center relative">
               <div className="sec h-72 w-72  bg-gradient-to-t from-pink-500 to-violet-600 lg:w-[520px] lg:h-[520px] lg:top-20 rounded-full absolute top-7 flex justify-center items-center">
                 <img src={boy} className='h-80 lg:h-[550px]' alt="" />
