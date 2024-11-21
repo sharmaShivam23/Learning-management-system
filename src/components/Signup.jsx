@@ -28,7 +28,7 @@ const Signup = () => {
   // let [emailValid, setemailValid] = useState(true);
   // let [passValid, setpassValid] = useState(true);
   // let [cpassValid, setcpassValid] = useState(true);
-  // let [formValid , setformValid] = useState(true)
+  let [formValid , setformValid] = useState(true)
   // let hasLowerCase = false;
   //     let hasUpperCase = false;
 
