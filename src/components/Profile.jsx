@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-// import Loading from './Loading';
+import Loading from './Loading';
 import card1 from '../images/card1.png'
 import { GrNext } from "react-icons/gr";
 import { MdAccessTimeFilled } from "react-icons/md";
@@ -22,7 +22,7 @@ export default function Profile({ setUsername }) {
 
   const [profile, setProfile] = useState(null);
   const [len , setLen] = useState(0)
-  // const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
   const navigate = useNavigate();
 
@@ -57,7 +57,7 @@ export default function Profile({ setUsername }) {
         // navigate('/login');
       } 
       finally {
-        // setLoading(false);
+        setLoading(false);
       }
     };
 
@@ -95,7 +95,7 @@ export default function Profile({ setUsername }) {
     } , 
   ]
 
-  // if (loading) return <p><Loading/></p>;
+  if (loading) return <p><Loading/></p>;
   if (error) return <p className="text-red-500">{error}</p>;
 
   return (

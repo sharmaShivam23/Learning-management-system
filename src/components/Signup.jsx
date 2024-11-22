@@ -37,16 +37,16 @@ const Signup = () => {
 
     if (clear()) {
       let item = {
-        // email,
-        // username,
-        // fullname: fullName,
-        // password: pass,
-          fullName,
-        username,
-        dateOfBirth : dob,
         email,
-        password : pass,
-        confirmPassword : cpass,
+        username,
+        fullname: fullName,
+        password: pass,
+        //   fullName,
+        // username,
+        // dateOfBirth : dob,
+        // email,
+        // password : pass,
+        // confirmPassword : cpass,
       };
       
       console.log(item);
@@ -98,11 +98,11 @@ const Signup = () => {
       alert("password must contain characters");
       setformValid(false)
     } 
-    if (!containsUpper(password)) {
+    if (!containsUpper(pass)) {
       alert("Password must contain  uppercase  letters.");
       
     }
-    if (!containsLower(password)) {
+    if (!containsLower(pass)) {
       alert("Password must contain lowercase letters.");
       
     }
