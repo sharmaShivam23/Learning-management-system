@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from "react";
+import React, { useState } from "react";
 import { FaUserPlus } from "react-icons/fa";
 import { MdAttachEmail } from "react-icons/md";
 import { RiLockPasswordFill } from "react-icons/ri";
@@ -20,17 +20,13 @@ const Signup = () => {
 
   const [showPassword, setShowPassword] = useState(false);
   const [showmsg, setShowmsg] = useState(false);
-  // const [firstClick, setfirstClick] = useState(true);
-
-  // let [fullNameValid, setnameValid] = useState(true);
-  // let [usernameValid, setuserValid] = useState(true);
-  // let [dobValid, setdobValid] = useState(true);
-  // let [emailValid, setemailValid] = useState(true);
-  // let [passValid, setpassValid] = useState(true);
-  // let [cpassValid, setcpassValid] = useState(true);
+  let [fullNameValid, setnameValid] = useState(true);
+  let [usernameValid, setuserValid] = useState(true);
+  let [dobValid, setdobValid] = useState(true);
+  let [emailValid, setemailValid] = useState(true);
+  let [passValid, setpassValid] = useState(true);
+  let [cpassValid, setcpassValid] = useState(true);
   let [formValid , setformValid] = useState(true)
-  // let hasLowerCase = false;
-  //     let hasUpperCase = false;
 
   async function handleSubmit(e) {
     e.preventDefault();
@@ -53,16 +49,16 @@ const Signup = () => {
 
       //  axios.post("http://localhost:5000/api/register", item , {
       //  https://e-learning-slfj.onrender.com/user/signup/
-      axios.post("https://e-learning-slfj.onrender.com/user/signup/", item, {
+      axios.post("", item, {
           headers: {
             "Content-Type": "application/json",
           },
         })
         .then((res) => {
           console.log(res);
-          // localStorage.setItem("token" , JSON.stringify(res.data.access));
           localStorage.setItem("token", res.data.access);
           alert("success");
+          navigate("/profile")
         })
         .catch((err) => {
           console.log(err);
@@ -77,38 +73,44 @@ const Signup = () => {
       email == "" ||
       pass == "" ||
       cpass == "" ||
-      dob == ""
+      dob == "" || 
+      username == ""
     ) {
       alert("Fill all the fields first");
       setformValid(false)
     } 
      if (fullName.split("").some((char) => !isNaN(char))) {
       alert("Name can't be a number");
-      setformValid(false)
+      setnameValid(false)
     }
       if (!email.includes("@gmail.com")) {
       alert("Email nust ends with @gmail.com");
-      setformValid(false)
+      setemailValid(false)
     } 
+    if(!username.includes("123")){
+      alert("username must have with 123")
+      setuserValid(false)
+    }
      if (pass.length < 6) {
       alert("password must contain at least 6 digits");
-      setformValid(false)
+      setpassValid(false)
     } 
      if (!containSpecial(pass)) {
       alert("password must contain characters");
-      setformValid(false)
+      setpassValid(false)
     } 
     if (!containsUpper(pass)) {
       alert("Password must contain  uppercase  letters.");
-      
+      setpassValid(false)
     }
     if (!containsLower(pass)) {
       alert("Password must contain lowercase letters.");
-      
+      setpassValid(false)
     }
    if (pass != cpass) {
       alert("Password and Confirm password must same");
-      setformValid(false)
+      setpassValid(false)
+      setcpassValid(false)
     }
     return true
   }
@@ -195,15 +197,15 @@ const Signup = () => {
         <div className="form px-4 md:px-8 lg:px-16 max-w-full">
           <div className="inputs text-xl md:text-2xl lg:text-3xl flex justify-center items-center flex-col">
             {/* Full Name Input */}
-            <div className="first mt-4 w-full md:w-[600px] lg:w-[800px]">
+            <div className="first mt-4 w-full md:w-[400px] lg:w-[800px]">
               <label
                 htmlFor="fullName"
                 className="font-bold text-xl mb-4 text-red-950 ml-1"
               >
                 Full Name
               </label>
-              <div className={`fullName flex rounded-lg justify-start items-center relative h-full border-2 ${formValid ? 'border-black' : 'border-red-700'}`}>
-                <div className={`icon absolute left-3 flex items-center  ${formValid ? 'text-black' : 'text-red-700'}`}>
+              <div className={`fullName flex rounded-lg justify-start items-center relative h-full border-2 ${(formValid || fullNameValid) ? 'border-black' : 'border-red-700'}`}>
+                <div className={`icon absolute left-3 flex items-center  ${(formValid || fullNameValid) ? 'text-black' : 'text-red-700'}`}>
                   <FaUserPlus />
                 </div>
                 <input
@@ -211,7 +213,7 @@ const Signup = () => {
                   value={fullName}
                   onChange={(e) => setname(e.target.value)}
                   id="fullName"
-                  className={`text-xl text-black w-full pl-12 py-[14.3px] rounded-lg h-full bg-transparent rounded-r-none  ${formValid ? 'placeholder:text-black' : 'placeholder:text-red-700'}`}
+                  className={`text-xl text-black w-full pl-12 py-[14.3px] rounded-lg h-full bg-transparent rounded-r-none  ${(formValid || fullNameValid) ? 'placeholder:text-black' : 'placeholder:text-red-700'}`}
                   placeholder="Enter fullName"
                 />
                 {fullName && (
@@ -226,15 +228,15 @@ const Signup = () => {
             </div>
 
             {/* Username Input */}
-            <div className="first mt-4 w-full md:w-[600px] lg:w-[800px]">
+            <div className="first mt-4 w-full md:w-[400px] lg:w-[800px]">
               <label
                 htmlFor="username"
                 className="font-bold text-xl mb-4 text-red-950 ml-1"
               >
                 Username
               </label>
-              <div className={`fullName flex rounded-lg justify-start items-center relative h-full border-2 ${formValid ? 'border-black' : 'border-red-700'}`}>
-                <div className={`icon absolute left-3 flex items-center  ${formValid ? 'text-black' : 'text-red-700'}`}>
+              <div className={`fullName flex rounded-lg justify-start items-center relative h-full border-2 ${(formValid || usernameValid) ? 'border-black' : 'border-red-700'}`}>
+                <div className={`icon absolute left-3 flex items-center  ${(formValid || usernameValid) ? 'text-black' : 'text-red-700'}`}>
                   <FaUserPlus />
                 </div>
                 <input
@@ -242,7 +244,7 @@ const Signup = () => {
                   value={username}
                   onChange={(e) => setuser(e.target.value)}
                   id="username"
-                  className={`text-xl text-black w-full pl-12 py-[14.3px] rounded-lg h-full bg-transparent rounded-r-none  ${formValid ? 'placeholder:text-black' : 'placeholder:text-red-700'}`}
+                  className={`text-xl text-black w-full pl-12 py-[14.3px] rounded-lg h-full bg-transparent rounded-r-none  ${(formValid || usernameValid) ? 'placeholder:text-black' : 'placeholder:text-red-700'}`}
                   placeholder="Enter Username"
                 />
                 {username && (
@@ -257,15 +259,15 @@ const Signup = () => {
             </div>
 
             {/* Date of Birth Input */}
-            <div className="first mt-4 w-full md:w-[600px] lg:w-[800px]">
+            <div className="first mt-4 w-full md:w-[400px] lg:w-[800px]">
               <label
                 htmlFor="dob"
                 className="font-bold text-xl mb-4 text-red-950 ml-1"
               >
                 Date of Birth
               </label>
-              <div className={`fullName flex rounded-lg justify-start items-center relative h-full border-2 ${formValid ? 'border-black' : 'border-red-700'}`}>
-                <div className={`icon absolute left-3 flex items-center  ${formValid ? 'text-black' : 'text-red-700'}`}>
+              <div className={`fullName flex rounded-lg justify-start items-center relative h-full border-2 ${(formValid || dobValid)? 'border-black' : 'border-red-700'}`}>
+                <div className={`icon absolute left-3 flex items-center  ${(formValid || dobValid)? 'text-black' : 'text-red-700'}`}>
                   <FaUserPlus />
                 </div>
                 <input
@@ -273,7 +275,7 @@ const Signup = () => {
                   value={dob}
                   onChange={(e) => setdob(e.target.value)}
                   id="dob"
-                  className={`text-xl text-black w-full pl-12 py-[14.3px] rounded-lg h-full bg-transparent rounded-r-none  ${formValid ? 'placeholder:text-black' : 'placeholder:text-red-700'}`}
+                  className={`text-xl text-black w-full pl-12 py-[14.3px] rounded-lg h-full bg-transparent rounded-r-none  ${(formValid || dobValid)? 'placeholder:text-black' : 'placeholder:text-red-700'}`}
                   placeholder="Enter Date of Birth"
                 />
                 {dob && (
@@ -288,15 +290,15 @@ const Signup = () => {
             </div>
 
             {/* Email Input */}
-            <div className="first mt-4 w-full md:w-[600px] lg:w-[800px]">
+            <div className="first mt-4 w-full md:w-[400px] lg:w-[800px]">
               <label
                 htmlFor="email"
                 className="font-bold text-xl mb-4 text-red-950 ml-1"
               >
                 Email Address
               </label>
-              <div className={`fullName flex rounded-lg justify-start items-center relative h-full border-2 ${formValid ? 'border-black' : 'border-red-700'}`}>
-                <div className={`icon absolute left-3 flex items-center  ${formValid ? 'text-black' : 'text-red-700'}`}>
+              <div className={`fullName flex rounded-lg justify-start items-center relative h-full border-2 ${(formValid || emailValid)? 'border-black' : 'border-red-700'}`}>
+                <div className={`icon absolute left-3 flex items-center  ${(formValid || emailValid)? 'text-black' : 'text-red-700'}`}>
                   <MdAttachEmail />
                 </div>
                 <input
@@ -304,7 +306,7 @@ const Signup = () => {
                   value={email}
                   onChange={(e) => setemail(e.target.value)}
                   id="email"
-                  className={`text-xl text-black w-full pl-12 py-[14.3px] rounded-lg h-full bg-transparent rounded-r-none  ${formValid ? 'placeholder:text-black' : 'placeholder:text-red-700'}`}
+                  className={`text-xl text-black w-full pl-12 py-[14.3px] rounded-lg h-full bg-transparent rounded-r-none  ${(formValid || emailValid)? 'placeholder:text-black' : 'placeholder:text-red-700'}`}
                   placeholder="Enter Email Address"
                 />
                 {email && (
@@ -319,15 +321,15 @@ const Signup = () => {
             </div>
 
             {/* Password Input */}
-            <div className="first mt-4 w-full md:w-[600px] lg:w-[800px]">
+            <div className="first mt-4 w-full md:w-[400px] lg:w-[800px]">
               <label
                 htmlFor="pass"
                 className="font-bold text-xl mb-4 text-red-950 ml-1"
               >
                 Password
               </label>
-              <div className={`fullName flex rounded-lg justify-start items-center relative h-full border-2 ${formValid ? 'border-black' : 'border-red-700'}`}>
-                <div className={`icon absolute left-3 flex items-center  ${formValid ? 'text-black' : 'text-red-700'}`}>
+              <div className={`fullName flex rounded-lg justify-start items-center relative h-full border-2 ${(formValid || passValid)? 'border-black' : 'border-red-700'}`}>
+                <div className={`icon absolute left-3 flex items-center  ${(formValid || passValid)? 'text-black' : 'text-red-700'}`}>
                   <RiLockPasswordFill />
                 </div>
                 <input
@@ -341,7 +343,7 @@ const Signup = () => {
                   }}
                   onClick={msg}
                   id="pass"
-                  className={`text-xl text-black w-full pl-12 py-[14.3px] rounded-lg h-full bg-transparent rounded-r-none  ${formValid ? 'placeholder:text-black' : 'placeholder:text-red-700'}`}
+                  className={`text-xl text-black w-full pl-12 py-[14.3px] rounded-lg h-full bg-transparent rounded-r-none  ${(formValid || passValid)? 'placeholder:text-black' : 'placeholder:text-red-700'}`}
                   placeholder="Enter Password"
                 />
                 {pass && (
@@ -373,15 +375,15 @@ const Signup = () => {
             )}
 
             {/* Confirm Password Input */}
-            <div className="first mt-4 w-full md:w-[600px] lg:w-[800px]">
+            <div className="first mt-4 w-full md:w-[400px] lg:w-[800px]">
               <label
                 htmlFor="c"
                 className="font-bold text-xl mb-4 text-red-950 ml-1"
               >
                 Confirm Password
               </label>
-              <div className={`fullName flex rounded-lg justify-start items-center relative h-full border-2 ${formValid ? 'border-black' : 'border-red-700'}`}>
-                <div className={`icon absolute left-3 flex items-center  ${formValid ? 'text-black' : 'text-red-700'}`}>
+              <div className={`fullName flex rounded-lg justify-start items-center relative h-full border-2 ${(formValid || cpassValid) ? 'border-black' : 'border-red-700'}`}>
+                <div className={`icon absolute left-3 flex items-center  ${(formValid || cpassValid) ? 'text-black' : 'text-red-700'}`}>
                   <RiLockPasswordFill />
                 </div>
                 <input
@@ -389,7 +391,7 @@ const Signup = () => {
                   value={cpass}
                   onChange={(e) => setcpass(e.target.value)}
                   id="c"
-                  className={`text-xl text-black w-full pl-12 py-[14.3px] rounded-lg h-full bg-transparent rounded-r-none  ${formValid ? 'placeholder:text-black' : 'placeholder:text-red-700'}`}
+                  className={`text-xl text-black w-full pl-12 py-[14.3px] rounded-lg h-full bg-transparent rounded-r-none  ${(formValid || cpassValid) ? 'placeholder:text-black' : 'placeholder:text-red-700'}`}
                   placeholder="Confirm Password"
                 />
                 {cpass && (
@@ -405,7 +407,8 @@ const Signup = () => {
           </div>
         </div>
 
-        <div className="flex flex-col items-center mt-4">
+        
+        <div className="flex flex-col items-center mt-4 ">
           {/* Show Password Toggle */}
           <div className="text-center mt-2 text-2xl text-black font-bold flex justify-center items-center gap-2">
             <input
@@ -421,11 +424,12 @@ const Signup = () => {
         {/* Sign Up Button */}
         <div className="secondpart text-center mt-10 flex justify-center items-center flex-col">
           <div className="btn">
-            <button className="text-red-950 py-4 bg-orange-500 w-full sm:w-96 lg:w-[600px] text-xl md:text-2xl font-bold">
+            <button className="text-red-950 py-4 bg-orange-500 w-full sm:w-96 lg:w-[400px] text-xl md:text-2xl font-bold">
               Sign Up
             </button>
           </div>
-
+          
+          
           {/* Or Divider */}
           <div className="or h-10 flex justify-center items-center mt-5">
             <span className="border-2 mr-2 w-96 border-black"></span>
@@ -433,8 +437,9 @@ const Signup = () => {
             <span className="border-2 ml-2 w-96 border-black"></span>
           </div>
 
+          <div className="block sm:flex justify-evenly gap-2">
           {/* Social SignUp Buttons */}
-          <div className="logo flex mt-6 py-4 w-full sm:w-96 md:w-[600px] lg:w-[600px] text-xl font-bold justify-evenly border-2 items-center border-black text-black">
+          <div className="logo flex mt-10 py-4  sm:w-96 md:w-[400px] lg:w-[400px] text-xl font-bold justify-evenly border-2 items-center border-black text-black">
             <div className="img">
               <img src={facebook} alt="" className="h-8 sm:h-10 max-w-full" />
             </div>
@@ -443,13 +448,14 @@ const Signup = () => {
             </div>
           </div>
 
-          <div className="logo flex mt-10 py-4 w-full sm:w-96 md:w-[600px] lg:w-[600px] text-xl font-bold justify-evenly border-2 items-center border-black text-black">
+          <div className="logo flex mt-10 py-4  sm:w-96 md:w-[400px] lg:w-[400px] text-xl font-bold justify-evenly border-2 items-center border-black text-black">
             <div className="img">
               <img src={google} alt="" className="h-8 sm:h-10 max-w-full" />
             </div>
             <div className="text text-center tracking-wider">
               Sign Up with Google
             </div>
+          </div>
           </div>
 
           {/* Already Have an Account Link */}
@@ -476,6 +482,8 @@ const Signup = () => {
 };
 
 export default Signup;
+
+
 
 
 

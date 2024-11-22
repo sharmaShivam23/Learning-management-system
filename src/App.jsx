@@ -9,6 +9,7 @@ import Courses from './components/Course'
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Contact from './components/Contact'
 import Password from './components/Password'
+import ShowCourses from './components/ShowCourses'
 
 
 function App() {
@@ -25,8 +26,9 @@ function App() {
       <Route path="/Login" element={<Login/>}></Route>
       <Route path="/profile" element={<Profile setUsername={setUsername} />}></Route>
       <Route path="//courses" element={<Courses/>}></Route>
-      <Route path="Contact" element={<Contact/>}></Route>
-      <Route path="Password" element={<Password/>}></Route>
+      <Route path="/Contact" element={<Contact/>}></Route>
+      <Route path="/Password" element={<Password/>}></Route>
+      <Route path="/ShowCourses" element={<ShowCourses/>}></Route>
     </Routes>
     </Router>
     </>

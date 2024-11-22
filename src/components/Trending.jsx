@@ -114,9 +114,9 @@ const Trending = () => {
       <h1 className="text-center p-5 text-4xl font-bold">Trending Topics</h1>
 
       <div className="trending flex  mt-32 justify-evenly items-center flex-wrap gap-32 rounded-lg ">
-        {obj.map((item) => (
-          <div
-            className={`cards text-center relative -z-10 ${item} cursor-pointer`}
+        {obj.map((item,index) => (
+          <div key={index}
+            className={`cards text-center relative -z-10 ${item}  cursor-pointer`}
           >
             <img
               src={item.img}
@@ -134,7 +134,8 @@ const Trending = () => {
                 </div>
 
                 <div className="title mt-3">{item.title}</div>
-
+                   
+                 
                 <div className="rating flex justify-center gap-2 text-3xl mt-5 text-yellow-400 animate-bounce  ">
                   <div className="star1">
                     <IoStar />
@@ -152,6 +153,7 @@ const Trending = () => {
                     <IoStar />
                   </div>
                 </div>
+                  
               </div>
             </div>
           </div>

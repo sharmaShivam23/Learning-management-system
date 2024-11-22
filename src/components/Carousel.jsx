@@ -1,14 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import learn from "../images/learn.jpg";
-import learnn from "../images/learnn.jpg";
-import learnnn from "../images/learnnn.jpg";
 import pexell from "../images/pexell.jpg";
 import pexelll from "../images/pexelll.jpg";
+import course from "../images/course.webp"
+import boys from "../images/boys.webp"
+import ed from "../images/ed.webp"
 import { FaHandPointRight } from "react-icons/fa";
 import { FaHandPointLeft } from "react-icons/fa";
 
 const Carousel = () => {
-  const images = [learn, learnn, learnnn , pexell , pexelll];
+  const images = [learn, pexell , pexelll , course , boys , ed];
   const [currentIndex, setCurrentIndex] = useState(0); 
 
   function handleRight() {
@@ -29,8 +30,8 @@ useEffect(() => {
 
 
   return (
-    <div className='flex justify-center flex-col items-center mt-4 z-10 shadow-lg shadow-red-950'>
-      <div className="h-[550px] w-full overflow-hidden">
+    <div className='flex justify-center rounded-2xl flex-col items-center mt-4 z-10 shadow-lg shadow-red-950'>
+      <div className="h-[620px] w-full object-cover">
   <img 
     src={images[currentIndex]} 
     className="object-cover w-full h-full transition-all ease-in-out duration-500" 
