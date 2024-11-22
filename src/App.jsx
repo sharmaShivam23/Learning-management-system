@@ -9,7 +9,7 @@ import Courses from './components/Course'
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Contact from './components/Contact'
 import Password from './components/Password'
-import ShowCourses from './components/showCourses'
+import ShowCourses from './components/ShowCourses'
 
 
 function App() {
