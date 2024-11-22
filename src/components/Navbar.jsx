@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 
 import { Link, useNavigate } from 'react-router-dom'; // Added useNavigate
 import { GiCrossedAxes } from "react-icons/gi";
-import radio2 from "../images/radioo.png"; // Uncommented or added placeholder image
+import radioo from "../images/radioo.png"; // Uncommented or added placeholder image
 
 const Navbar = ({ username }) => {
   const [menu, setMenu] = useState(false);
@@ -47,7 +47,7 @@ const Navbar = ({ username }) => {
         {/* Left Section */}
         <div className="left flex items-center">
           <div className="logo">
-            <img src={radio2} alt="Learnify Logo" className='h-12' />
+            <img src={radioo} alt="Learnify Logo" className='h-12' />
           </div>
           <div className="text flex justify-center font-bold text-orange-900 tracking-wider text-xl ml-3">
             learnify
@@ -105,7 +105,7 @@ const Navbar = ({ username }) => {
         <div className="list2 fixed z-50 bg-amber-600 h-screen w-7/12 top-0 left-0">
           <ul className="flex flex-col justify-evenly items-center text-xl font-bold mt-10">
             <li>
-              <img src={radio2} alt="Learnify Logo" className='h-16' />
+              <img src={radioo} alt="Learnify Logo" className='h-16' />
               <div className="text flex justify-center font-bold text-white tracking-wider text-xl">
                 learnify
               </div>
