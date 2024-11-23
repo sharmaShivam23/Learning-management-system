@@ -5,6 +5,7 @@ import { IoStar } from 'react-icons/io5';
 import { MdAccessTimeFilled } from 'react-icons/md';
 import { GrNext } from 'react-icons/gr';
 import Loading from './Loading';
+import ed from "../images/ed.webp";
 
 const News = () => {
   const [articles, setArticles] = useState([]);
@@ -39,7 +40,6 @@ const News = () => {
       {/* Error Handling */}
       {error && <p className="error text-red-600 text-center mt-4">Error: {error}</p>}
 
-      {/* Navigation Menu */}
       {/* <div>
         <ul className="listNews hidden sm:flex justify-center items-center gap-4 text-2xl font-bold bg-white w-full cursor-pointer">
           <li onClick={() => setCourse("Introduction to Programming")}>Introduction to Programming</li>
@@ -49,10 +49,10 @@ const News = () => {
           <li onClick={() => setCourse("Election")}>Election</li>
           <li onClick={() => setCourse("War")}>War</li>
         </ul>
-      </div> */}
+      </div>
 
       {/* Articles Display */}
-      <div className="article-container flex justify-center items-center flex-wrap gap-3 h-auto w-auto px-4">
+      <div className="article-container flex justify-center items-center flex-wrap gap-10 mt-6 h-auto w-auto px-4">
         {isLoading ? (
           <div className="text-center">
             <Loading />
@@ -63,37 +63,53 @@ const News = () => {
               key={index}
               className="card w-full sm:w-96  bg-white rounded-lg shadow-lg overflow-hidden hover:scale-105 transform transition"
             >
+              
+                <>
+              {item.course_image ? 
               <img
-                src={item.imag}
+                src={item.course_image}
                 className="h-48 w-full mb-1 object-cover"
                 alt={item.title}
               />
-              <div className="content bg-gradient-to-br from-violet-500 to-pink-600 p-4 text-white">
+              :
+              <img
+              src={ed}
+              className="h-48 w-full mb-1 object-cover"
+              alt={item.title}
+            /> 
+              }
+              <div className="content bg-[#FF8800] p-4 text-white">
+                {item.title ? 
                 <h3 className="name text-2xl font-bold text-center">{item.title}</h3>
+                :  <h3 className="name text-2xl font-bold text-center">{item.course_title}</h3>}
                 <div className="stats flex justify-between mt-3 text-lg">
                   <div className="flex items-center gap-2">
                     <IoStar className="text-yellow-400 text-lg" />
-                    <span>{item.rating || "N/A"}</span>
+                    <span>{item.rating}</span>
                   </div>
-                  <div>{item.learners || "Unknown"} learners</div>
-                  <div>{item.duration || "N/A"} hours</div>
+                  <div>{`${item.price} price`}</div>
+                  <div>{item.level}</div>
                 </div>
                 <div className="info flex justify-between items-center mt-4">
                   <div className="flex items-center gap-2">
                     <MdAccessTimeFilled className="text-xl" />
-                    <span>{"4"}</span>
+                    <span>{item.content_duration}</span>
                   </div>
                   <button className="flex items-center gap-2 text-black font-bold text-lg hover:text-blue-800">
-                    Enroll now <GrNext />
+                    <a href={item.url}>Enroll now</a> <GrNext />
                   </button>
                 </div>
               </div>
+              </>
+            
             </div>
+          
           ))
         ) : (
           // <p className="text-center text-xl mt-4">No courses available for "{course}".</p>
           <p className="text-center text-xl mt-4">No courses available for.</p>
         )}
+      
       </div>
     </div>
   );

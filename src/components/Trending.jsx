@@ -139,7 +139,7 @@ const Trending = () => {
                 <div className="title mt-3">{item.title}</div>
                    
                  
-                <div className="rating flex justify-center gap-2 text-3xl mt-5  animate-bounce  ">
+                <div className="rating flex justify-center gap-2 text-3xl mt-5  animate-bounce  text-yellow-400">
                   {[...Array(5)].map((star, index) => (
                     
                     <>

@@ -1,18 +1,79 @@
+
+
 import React from "react";
 import { FaUserPlus } from "react-icons/fa";
 import { MdAttachEmail } from "react-icons/md";
 import { useState } from "react";
 import { RiLockPasswordFill } from "react-icons/ri";
+import axios from "axios";
 
 const Contact = () => {
-  let [contact, setcontact] = useState("");
+  let [contactNumber, setcontact] = useState("");
   let [email, setemail] = useState("");
   let [fullName, setname] = useState("");
   let [username, setuser] = useState("");
 
+  async function handleSubmit(e) {
+    e.preventDefault();
+
+    if (clear()) {
+      let item = {
+        fullName,
+        username,
+        contactNumber,
+        email,
+      };
+
+      console.log(item);
+      axios
+        .post("https://lms-j25h.onrender.com/contact", item, {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        })
+        .then((res) => {
+          console.log(res);
+          alert("success");
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }
+  }
+
+  function clear() {
+    
+    if(username =="" || contactNumber =="" || email == "" || fullName==""){
+      alert("fill all fields")
+    }
+
+    if(username){
+    if (!username.endsWith("123")) {
+      alert("Username must end with '123'.");
+      return false;
+    }
+  }
+
+    if(contactNumber){
+    if (contactNumber.length !== 10 || isNaN(contactNumber)) {
+      alert("Contact Number must be exactly 10 digits.");
+      return false;
+    }
+  }
+   
+   if(email){
+    if (!email.endsWith("@gmail.com")) {
+      alert("Email must end with '@gmail.com'.");
+      return false;
+    }
+  }
+
+    return true;
+  }
+
   return (
     <>
-      <form>
+      <form onSubmit={handleSubmit}>
         <h1 className="text-4xl text-center font-bold  bg-red-950 py-5 text-white mt-1">
           Contact
         </h1>
@@ -34,8 +95,8 @@ const Contact = () => {
                 onChange={(e) => setname(e.target.value)}
                 id="fullName"
                 className="text-xl text-black w-full pl-12 py-3 rounded-lg h-full bg-transparent"
-                placeholder="Enter  fullName"
-                required
+                placeholder="Enter Full Name"
+            
               />
             </div>
           </div>
@@ -58,14 +119,14 @@ const Contact = () => {
                 id="username"
                 className="text-xl text-black w-full pl-12 py-3 rounded-lg h-full bg-transparent"
                 placeholder="Enter Username"
-                required
+                
               />
             </div>
           </div>
 
           <div className="first mt-4 w-full md:w-[600px] lg:w-[800px]">
             <label
-              htmlFor="email"
+              htmlFor="con"
               className="font-bold text-xl mb-4 text-red-950 ml-1"
             >
               Contact Number
@@ -76,9 +137,9 @@ const Contact = () => {
               </div>
               <input
                 type="contact"
-                value={contact}
+                value={contactNumber}
                 onChange={(e) => setcontact(e.target.value)}
-                id="email"
+                id="con"
                 className="text-xl text-black w-full pl-12 py-3 rounded-lg h-full bg-transparent"
                 placeholder="Enter Contact Number"
               />
@@ -109,7 +170,7 @@ const Contact = () => {
 
           <div className="div text-lg mt-8 text-black text-center">
             <p className="tracking-wide">
-              By submitting this form, you conset to our Terms of use & Privacy
+              By submitting this form, you consent to our Terms of Use & Privacy
             </p>
             <p>Policy and to be contacted by us via Email/Call/Whatsapp/SMS</p>
           </div>

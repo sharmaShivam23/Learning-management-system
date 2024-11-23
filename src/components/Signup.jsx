@@ -21,6 +21,8 @@ const Signup = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [showmsg, setShowmsg] = useState(false);
   let [fullNameValid, setnameValid] = useState(true);
+  // let [userPhoto, setuserPhoto] = useState(null);
+  // let [userPhotoValid, setuserPhotoValid] = useState(true);
   let [usernameValid, setuserValid] = useState(true);
   let [dobValid, setdobValid] = useState(true);
   let [emailValid, setemailValid] = useState(true);
@@ -36,6 +38,7 @@ const Signup = () => {
         // username,
         // fullname: fullName,
         // password: pass,
+        // userPhoto,
           fullName,
         username,
         dateOfBirth : dob,
@@ -43,7 +46,7 @@ const Signup = () => {
         password : pass,
         confirmPassword : cpass,
       };
-      
+
       console.log(item);
       // axios.post(" https://e-learning-slfj.onrender.com/user/signup/", item, {
       axios.post("https://lms-j25h.onrender.com/api/auth/register", item, {
@@ -60,102 +63,118 @@ const Signup = () => {
         .catch((err) => {
           console.log(err);
         });
+      // let formData = new FormData();
+      // formData.append("userPhoto", userPhoto);
+      // formData.append("fullName", fullName);
+      // formData.append("username", username);
+      // formData.append("dateOfBirth", dob);
+      // formData.append("email", email);
+      // formData.append("password", pass);
+      // formData.append("confirmPassword", cpass);
+      
+      // axios
+      //   .post("https://lms-j25h.onrender.com/api/auth/register", formData, {
+      //     headers: {
+      //       "Content-Type": "multipart/form-data",
+      //       //  "Content-Type": "application/json"
+      //     },
+      //   })
+      //   .then((res) => {
+      //     console.log(res);
+      //     alert("success");
+      //     navigate("/login");
+      //   })
+      //   .catch((err) => {
+      //     console.error(err.response?.data || err.message);
+      //   });
     }
   }
 
   function clear() {
-    
     if (
       fullName == "" ||
       email == "" ||
       pass == "" ||
       cpass == "" ||
-      dob == "" || 
+      dob == "" ||
       username == ""
     ) {
       alert("Fill all the fields first");
-    } 
-    if(dob===""){
-      setdobValid(false)
     }
-    else{
-      setdobValid(true)
-    }
-    if(fullName==""){
-      setnameValid(false)
-    }
-    if(username==""){
-      setuserValid(false)
-    }
-    if(pass==""){
-      setpassValid(false)
-    }
-    if(cpass==""){
-      setcpassValid(false)
-    }
-    if(email==""){
-      setemailValid(false)
-    }
-    if(fullName){
-     if (fullName.split("").some((char) => !isNaN(char))) {
-      alert("Name can't be a number");
-      setnameValid(false)
-    }
-    else{
-      setnameValid(true)
-    }
-  }
-     if(email){
-      if (!email.includes("@gmail.com")) {
-      alert("Email nust ends with @gmail.com");
-      setemailValid(false)
-    } 
-    else{
-      setemailValid(true)
-    }
-  }
-  if(username){
-    if(!username.includes("123")){
-      alert("username must have with 123")
-      setuserValid(false)
-    }
-    else{
-      setuserValid(true)
-    }
-  }
-  if(pass){
-    if (pass.length < 6) {
-      alert("Password must contain at least 6 characters");
-      setpassValid(false);
-    } else if (!containSpecial(pass)) {
-      alert("Password must contain special characters");
-      setpassValid(false);
-    } else if (!containsUpper(pass)) {
-      alert("Password must contain uppercase letters");
-      setpassValid(false);
-    } else if (!containsLower(pass)) {
-      alert("Password must contain lowercase letters");
-      setpassValid(false);
+    if (dob === "") {
+      setdobValid(false);
     } else {
-      setpassValid(true);
+      setdobValid(true);
     }
-  }
-  
-  
-  
-  if(cpass){
-   if (pass != cpass) {
-      alert("Password and Confirm password must same");
-      setpassValid(false)
-      setcpassValid(false)
+    if (fullName == "") {
+      setnameValid(false);
     }
-    else{
-      setpassValid(true)
-      setcpassValid(true)
+    if (username == "") {
+      setuserValid(false);
     }
-  }
-  
-    return true
+    if (pass == "") {
+      setpassValid(false);
+    }
+    if (cpass == "") {
+      setcpassValid(false);
+    }
+    if (email == "") {
+      setemailValid(false);
+    }
+    if (fullName) {
+      if (fullName.split("").some((char) => !isNaN(char))) {
+        alert("Name can't be a number");
+        setnameValid(false);
+      } else {
+        setnameValid(true);
+      }
+    }
+    if (email) {
+      if (!email.includes("@gmail.com")) {
+        alert("Email nust ends with @gmail.com");
+        setemailValid(false);
+      } else {
+        setemailValid(true);
+      }
+    }
+    if (username) {
+      if (!username.includes("123")) {
+        alert("username must have with 123");
+        setuserValid(false);
+      } else {
+        setuserValid(true);
+      }
+    }
+    if (pass) {
+      if (pass.length < 6) {
+        alert("Password must contain at least 6 characters");
+        setpassValid(false);
+      } else if (!containSpecial(pass)) {
+        alert("Password must contain special characters");
+        setpassValid(false);
+      } else if (!containsUpper(pass)) {
+        alert("Password must contain uppercase letters");
+        setpassValid(false);
+      } else if (!containsLower(pass)) {
+        alert("Password must contain lowercase letters");
+        setpassValid(false);
+      } else {
+        setpassValid(true);
+      }
+    }
+
+    if (cpass) {
+      if (pass != cpass) {
+        alert("Password and Confirm password must same");
+        setpassValid(false);
+        setcpassValid(false);
+      } else {
+        setpassValid(true);
+        setcpassValid(true);
+      }
+    }
+
+    return true;
   }
 
   function containSpecial(str) {
@@ -167,35 +186,32 @@ const Signup = () => {
     }
     return false;
   }
- 
 
   function containsUpper(str) {
     for (const char of str) {
       if (char >= "A" && char <= "Z") {
-        return true; 
+        return true;
       }
     }
-    return false; 
+    return false;
   }
-  
+
   const containsLower = (str) => {
     for (const char of str) {
       if (char >= "a" && char <= "z") {
         return true;
       }
     }
-    return false; 
-  }
-  
+    return false;
+  };
 
   const handleToggle = () => {
     setShowPassword((prevState) => !prevState);
   };
-  
-  const login = () => {
-    navigate("/login")
-  }
 
+  const login = () => {
+    navigate("/login");
+  };
 
   const clearFieldname = () => {
     if (fullName) {
@@ -225,12 +241,18 @@ const Signup = () => {
   }
 
   function msg() {
-      setShowmsg(true);
+    setShowmsg(true);
   }
 
   function cutmsg() {
     setShowmsg(false);
   }
+  // function handleImg(e) {
+  //   console.log(e.target.files[0]); 
+  //   setuserPhoto(e.target.files[0]); 
+  //   // setPreview(URL.createObjectURL(e.target.files[0]))
+  // }
+  
 
   return (
     <>
@@ -240,6 +262,41 @@ const Signup = () => {
         </h1>
 
         <div className="form px-4 md:px-8 lg:px-16 max-w-full">
+        {/* <div className="first mt-4 w-full md:w-[400px] lg:w-[800px]">
+              <label
+                htmlFor="img"
+                className="font-bold text-xl mb-4 text-red-950 ml-1"
+              >
+                Upload Photo
+              </label>
+              <div
+                className={`fullName flex rounded-lg justify-start items-center relative h-full border-2 ${
+                  emailValid ? "border-black" : "border-red-700"
+                }`}
+              >
+                <div
+                  className={`icon absolute left-3 flex items-center  ${
+                    emailValid ? "text-black" : "text-red-700"
+                  }`}
+                >
+                  <MdAttachEmail />
+                </div>
+                <input
+                  type="file"
+                  onChange={handleImg}
+                  accept="image/*"
+                  id="img"
+                  className={`text-xl text-black w-full pl-12 py-[14.3px] rounded-lg h-full bg-transparent rounded-r-none  ${
+                    emailValid
+                      ? "placeholder:text-black"
+                      : "placeholder:text-red-700  text-red-700"
+                  }`}
+                 
+                />
+              </div>
+            </div> */}
+
+
           <div className="inputs text-xl md:text-2xl lg:text-3xl flex justify-center items-center flex-col">
             {/* Full Name Input */}
             <div className="first mt-4 w-full md:w-[400px] lg:w-[800px]">
@@ -249,8 +306,16 @@ const Signup = () => {
               >
                 Full Name
               </label>
-              <div className={`fullName flex rounded-lg justify-start items-center relative h-full border-2 ${(fullNameValid) ? 'border-black' : 'border-red-700'}`}>
-                <div className={`icon absolute left-3 flex items-center  ${(fullNameValid) ? 'text-black' : 'text-red-700'}`}>
+              <div
+                className={`fullName flex rounded-lg justify-start items-center relative h-full border-2 ${
+                  fullNameValid ? "border-black" : "border-red-700"
+                }`}
+              >
+                <div
+                  className={`icon absolute left-3 flex items-center  ${
+                    fullNameValid ? "text-black" : "text-red-700"
+                  }`}
+                >
                   <FaUserPlus />
                 </div>
                 <input
@@ -258,7 +323,11 @@ const Signup = () => {
                   value={fullName}
                   onChange={(e) => setname(e.target.value)}
                   id="fullName"
-                  className={`text-xl text-black w-full pl-12 py-[14.3px] rounded-lg h-full bg-transparent rounded-r-none  ${!fullNameValid ? 'placeholder:text-red-700 text-red-700' : ''}`}
+                  className={`text-xl text-black w-full pl-12 py-[14.3px] rounded-lg h-full bg-transparent rounded-r-none  ${
+                    !fullNameValid
+                      ? "placeholder:text-red-700 text-red-700"
+                      : ""
+                  }`}
                   placeholder="Enter fullName"
                 />
                 {fullName && (
@@ -280,8 +349,16 @@ const Signup = () => {
               >
                 Username
               </label>
-              <div className={`fullName flex rounded-lg justify-start items-center relative h-full border-2 ${ usernameValid ? 'border-black' : 'border-red-700'}`}>
-                <div className={`icon absolute left-3 flex items-center  ${ usernameValid ? 'text-black' : 'text-red-700'}`}>
+              <div
+                className={`fullName flex rounded-lg justify-start items-center relative h-full border-2 ${
+                  usernameValid ? "border-black" : "border-red-700"
+                }`}
+              >
+                <div
+                  className={`icon absolute left-3 flex items-center  ${
+                    usernameValid ? "text-black" : "text-red-700"
+                  }`}
+                >
                   <FaUserPlus />
                 </div>
                 <input
@@ -289,7 +366,11 @@ const Signup = () => {
                   value={username}
                   onChange={(e) => setuser(e.target.value)}
                   id="username"
-                  className={`text-xl text-black w-full pl-12 py-[14.3px] rounded-lg h-full bg-transparent rounded-r-none  ${ usernameValid ? 'placeholder:text-black' : 'placeholder:text-red-700  text-red-700'}`}
+                  className={`text-xl text-black w-full pl-12 py-[14.3px] rounded-lg h-full bg-transparent rounded-r-none  ${
+                    usernameValid
+                      ? "placeholder:text-black"
+                      : "placeholder:text-red-700  text-red-700"
+                  }`}
                   placeholder="Enter Username"
                 />
                 {username && (
@@ -311,8 +392,16 @@ const Signup = () => {
               >
                 Date of Birth
               </label>
-              <div className={`fullName flex rounded-lg justify-start items-center relative h-full border-2 ${(dobValid)? 'border-black' : 'border-red-700'}`}>
-                <div className={`icon absolute left-3 flex items-center  ${(dobValid)? 'text-black' : 'text-red-700'}`}>
+              <div
+                className={`fullName flex rounded-lg justify-start items-center relative h-full border-2 ${
+                  dobValid ? "border-black" : "border-red-700"
+                }`}
+              >
+                <div
+                  className={`icon absolute left-3 flex items-center  ${
+                    dobValid ? "text-black" : "text-red-700"
+                  }`}
+                >
                   <FaUserPlus />
                 </div>
                 <input
@@ -320,7 +409,11 @@ const Signup = () => {
                   value={dob}
                   onChange={(e) => setdob(e.target.value)}
                   id="dob"
-                  className={`text-xl text-black w-full pl-12 py-[14.3px] rounded-lg h-full bg-transparent rounded-r-none  ${(dobValid)? 'placeholder:text-black' : 'placeholder:text-red-700  text-red-700'}`}
+                  className={`text-xl text-black w-full pl-12 py-[14.3px] rounded-lg h-full bg-transparent rounded-r-none  ${
+                    dobValid
+                      ? "placeholder:text-black"
+                      : "placeholder:text-red-700  text-red-700"
+                  }`}
                   placeholder="Enter Date of Birth"
                 />
                 {dob && (
@@ -342,8 +435,16 @@ const Signup = () => {
               >
                 Email Address
               </label>
-              <div className={`fullName flex rounded-lg justify-start items-center relative h-full border-2 ${ emailValid? 'border-black' : 'border-red-700'}`}>
-                <div className={`icon absolute left-3 flex items-center  ${emailValid? 'text-black' : 'text-red-700'}`}>
+              <div
+                className={`fullName flex rounded-lg justify-start items-center relative h-full border-2 ${
+                  emailValid ? "border-black" : "border-red-700"
+                }`}
+              >
+                <div
+                  className={`icon absolute left-3 flex items-center  ${
+                    emailValid ? "text-black" : "text-red-700"
+                  }`}
+                >
                   <MdAttachEmail />
                 </div>
                 <input
@@ -351,7 +452,11 @@ const Signup = () => {
                   value={email}
                   onChange={(e) => setemail(e.target.value)}
                   id="email"
-                  className={`text-xl text-black w-full pl-12 py-[14.3px] rounded-lg h-full bg-transparent rounded-r-none  ${ emailValid? 'placeholder:text-black' : 'placeholder:text-red-700  text-red-700'}`}
+                  className={`text-xl text-black w-full pl-12 py-[14.3px] rounded-lg h-full bg-transparent rounded-r-none  ${
+                    emailValid
+                      ? "placeholder:text-black"
+                      : "placeholder:text-red-700  text-red-700"
+                  }`}
                   placeholder="Enter Email Address"
                 />
                 {email && (
@@ -365,6 +470,8 @@ const Signup = () => {
               </div>
             </div>
 
+           
+
             {/* Password Input */}
             <div className="first mt-4 w-full md:w-[400px] lg:w-[800px]">
               <label
@@ -373,8 +480,16 @@ const Signup = () => {
               >
                 Password
               </label>
-              <div className={`fullName flex rounded-lg justify-start items-center relative h-full border-2 ${passValid ? 'border-black' : 'border-red-700'}`}>
-                <div className={`icon absolute left-3 flex items-center  ${passValid ? 'text-black' : 'text-red-700'}`}>
+              <div
+                className={`fullName flex rounded-lg justify-start items-center relative h-full border-2 ${
+                  passValid ? "border-black" : "border-red-700"
+                }`}
+              >
+                <div
+                  className={`icon absolute left-3 flex items-center  ${
+                    passValid ? "text-black" : "text-red-700"
+                  }`}
+                >
                   <RiLockPasswordFill />
                 </div>
                 <input
@@ -383,12 +498,14 @@ const Signup = () => {
                   onChange={(e) => {
                     setpass(e.target.value);
                     if (e.target.value) {
-                      setShowmsg(false); 
+                      setShowmsg(false);
                     }
                   }}
                   onClick={msg}
                   id="pass"
-                  className={`text-xl text-black w-full pl-12 py-[14.3px] rounded-lg h-full bg-transparent rounded-r-none  ${!passValid ? 'placeholder:text-red-700  text-red-700' : ''}`}
+                  className={`text-xl text-black w-full pl-12 py-[14.3px] rounded-lg h-full bg-transparent rounded-r-none  ${
+                    !passValid ? "placeholder:text-red-700  text-red-700" : ""
+                  }`}
                   placeholder="Enter Password"
                 />
                 {pass && (
@@ -427,8 +544,16 @@ const Signup = () => {
               >
                 Confirm Password
               </label>
-              <div className={`fullName flex rounded-lg justify-start items-center relative h-full border-2 ${(cpassValid) ? 'border-black' : 'border-red-700'}`}>
-                <div className={`icon absolute left-3 flex items-center  ${ cpassValid? 'text-black' : 'text-red-700'}`}>
+              <div
+                className={`fullName flex rounded-lg justify-start items-center relative h-full border-2 ${
+                  cpassValid ? "border-black" : "border-red-700"
+                }`}
+              >
+                <div
+                  className={`icon absolute left-3 flex items-center  ${
+                    cpassValid ? "text-black" : "text-red-700"
+                  }`}
+                >
                   <RiLockPasswordFill />
                 </div>
                 <input
@@ -436,7 +561,11 @@ const Signup = () => {
                   value={cpass}
                   onChange={(e) => setcpass(e.target.value)}
                   id="c"
-                  className={`text-xl text-black w-full pl-12 py-[14.3px] rounded-lg h-full bg-transparent rounded-r-none  ${(cpassValid) ? 'placeholder:text-black' : 'placeholder:text-red-700 text-red-700'}`}
+                  className={`text-xl text-black w-full pl-12 py-[14.3px] rounded-lg h-full bg-transparent rounded-r-none  ${
+                    cpassValid
+                      ? "placeholder:text-black"
+                      : "placeholder:text-red-700 text-red-700"
+                  }`}
                   placeholder="Confirm Password"
                 />
                 {cpass && (
@@ -452,7 +581,6 @@ const Signup = () => {
           </div>
         </div>
 
-        
         <div className="flex flex-col items-center mt-4">
           {/* Show Password Toggle */}
           <div className="text-center mt-2 text-2xl text-black font-bold flex justify-center items-center gap-2 ">
@@ -462,7 +590,9 @@ const Signup = () => {
               id="check"
               onChange={handleToggle}
             />
-            <label htmlFor="check" className="cursor-pointer">Show Password</label>
+            <label htmlFor="check" className="cursor-pointer">
+              Show Password
+            </label>
           </div>
         </div>
 
@@ -473,8 +603,7 @@ const Signup = () => {
               Sign Up
             </button>
           </div>
-          
-          
+
           {/* Or Divider */}
           <div className="or h-10 flex justify-center items-center mt-5">
             <span className="border-2 mr-2 w-96 border-black"></span>
@@ -483,24 +612,24 @@ const Signup = () => {
           </div>
 
           <div className="block sm:flex justify-evenly gap-2 cursor-pointer">
-          {/* Social SignUp Buttons */}
-          <div className="logo flex mt-10 py-4  sm:w-96 md:w-[400px] lg:w-[400px] text-xl font-bold justify-evenly border-2 items-center border-black text-black">
-            <div className="img">
-              <img src={faceimg} alt="" className="h-8 sm:h-10 max-w-full" />
+            {/* Social SignUp Buttons */}
+            <div className="logo flex mt-10 py-4  sm:w-96 md:w-[400px] lg:w-[400px] text-xl font-bold justify-evenly border-2 items-center border-black text-black">
+              <div className="img">
+                <img src={faceimg} alt="" className="h-8 sm:h-10 max-w-full" />
+              </div>
+              <div className="text text-center tracking-wider">
+                Sign Up with Facebook
+              </div>
             </div>
-            <div className="text text-center tracking-wider">
-              Sign Up with Facebook
-            </div>
-          </div>
 
-          <div className="logo flex mt-10 py-4  sm:w-96 md:w-[400px] lg:w-[400px] text-xl font-bold justify-evenly border-2 items-center border-black text-black">
-            <div className="img">
-              <img src={gicon} alt="" className="h-8 sm:h-10 max-w-full" />
+            <div className="logo flex mt-10 py-4  sm:w-96 md:w-[400px] lg:w-[400px] text-xl font-bold justify-evenly border-2 items-center border-black text-black">
+              <div className="img">
+                <img src={gicon} alt="" className="h-8 sm:h-10 max-w-full" />
+              </div>
+              <div className="text text-center tracking-wider">
+                Sign Up with gicon
+              </div>
             </div>
-            <div className="text text-center tracking-wider">
-              Sign Up with gicon
-            </div>
-          </div>
           </div>
 
           {/* Already Have an Account Link */}
@@ -508,7 +637,12 @@ const Signup = () => {
             <span className="text-xl text-black font-bold">
               Already on Learnify?
             </span>
-            <span onClick={login} className="text-lg text-blue-600 font-bold ml-2 cursor-pointer">Log in</span>
+            <span
+              onClick={login}
+              className="text-lg text-blue-600 font-bold ml-2 cursor-pointer"
+            >
+              Log in
+            </span>
           </div>
 
           {/* Terms of Use */}
@@ -527,9 +661,3 @@ const Signup = () => {
 };
 
 export default Signup;
-
-
-
-
-
-

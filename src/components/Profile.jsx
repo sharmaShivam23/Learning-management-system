@@ -91,7 +91,7 @@ export default function Profile({ setUsername }) {
       <div className="mx-auto text-center font-bold mt-8 flex justify-center items-center flex-col">
         <h1 className="text-3xl text-red-950 mb-4">A lifelong learner on a journey to create and inspire</h1>
         <div className="pht bg-blue-700 h-80 w-80 rounded-full mt-5 object-cover overflow-hidden flex justify-center items-center">
-          <img src={card1} className="object-cover h-80" alt="" />
+          <img src={profile?.userPhoto} className="object-cover h-80" alt="" />
         </div>
         <div className="name flex justify-evenly items-center flex-col">
           <div className="user flex justify-between gap-20 items-center mt-5">
@@ -115,13 +115,15 @@ export default function Profile({ setUsername }) {
           <div className="user flex justify-between gap-20 items-center mt-5">
             <div className="text-2xl font-bold tracking-wider">Date of Birth</div>
             <div className="h-10 border-2 border-black w-96 px-3 flex justify-center items-center rounded-xl bg-orange-500 text-2xl">
-              {profile?.dateOfBirth}
+              {/* {profile?.dateOfBirth} */}
+              {profile?.dateOfBirth ? new Date(profile.dateOfBirth).toLocaleDateString('en-US') : null}
+
             </div>
           </div>
         </div>
 
         <div className="div flex justify-center my-16">
-          <Link to="/Update" className="border-2 border-red-700 p-4 px-10 rounded-xl font-bold text-black text-xl bg-white shadow-md hover:shadow-lg hover:bg-gradient-to-br from-violet-500 to-pink-600 hover:text-white transition duration-300 ease-in-out transform hover:scale-105">
+          <Link to="/Update" className="border-2 border-red-700 p-4 px-10 rounded-xl font-bold text-black text-xl bg-white shadow-md hover:shadow-lg hover:bg-gradient-to-br from-yellow-500 to-orange-600 hover:text-white transition duration-300 ease-in-out transform hover:scale-105">
             Update
           </Link>
         </div>
@@ -130,7 +132,7 @@ export default function Profile({ setUsername }) {
           {obj.map((item, index) => (
             <div key={index} className="card w-full sm:w-72 rounded-lg overflow-hidden hover:scale-105 transform transition">
               <img src={item.img} className="h-48 w-full mb-1 object-cover" alt={item.name} />
-              <div className="content bg-gradient-to-br from-violet-500 to-pink-600 p-4 text-white">
+              <div className="content bg-[#FF8800] p-4 text-white">
                 <h3 className="name text-2xl font-bold text-center">{item.name}</h3>
                 <div className="stats flex justify-between mt-3 text-lg">
                   <div className="flex items-center gap-2">
