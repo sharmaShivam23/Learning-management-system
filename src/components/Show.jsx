@@ -4,7 +4,7 @@
 import React from 'react';
 import { GrNext } from "react-icons/gr";
 import { MdAccessTimeFilled } from "react-icons/md";
-import News from '../images/News.jpeg';
+import newsimage from '../images/newsimage.jpeg';
 import { IoStar } from "react-icons/io5";
 import { useNavigate } from 'react-router-dom';
 
@@ -22,7 +22,7 @@ const Show = () => {
 
   let obj = [
             {
-              img :News,
+              img :newsimage,
               name : "Chat gpt for begginer",
               star : "4.45",
               rate : ".1.5 Learners",
@@ -31,7 +31,7 @@ const Show = () => {
               btn : "Enroll now"
             } , 
             {
-              img :News,
+              img :newsimage,
               name : "Chat gpt for begginer",
               star : "4.45",
               rate : ".1.5 Learners",
@@ -40,7 +40,7 @@ const Show = () => {
               btn : "Enroll now"
             } , 
             {
-              img :News,
+              img :newsimage,
               name : "Chat gpt for begginer",
               star : "4.45",
               rate : ".1.5 Learners",
@@ -49,7 +49,7 @@ const Show = () => {
               btn : "Enroll now"
             } , 
             {
-              img :News,
+              img :newsimage,
               name : "Chat gpt for begginer",
               star : "4.45",
               rate : ".1.5 Learners",
@@ -58,7 +58,7 @@ const Show = () => {
               btn : "Enroll now"
             } , 
             {
-              img :News,
+              img :newsimage,
               name : "Chat gpt for begginer",
               star : "4.45",
               rate : ".1.5 Learners",
@@ -67,7 +67,7 @@ const Show = () => {
               btn : "Enroll now"
             } , 
             {
-              img :News,
+              img :newsimage,
               name : "Chat gpt for begginer",
               star : "4.45",
               rate : ".1.5 Learners",

@@ -3,8 +3,8 @@ import notes2 from "../images/notes2.png";
 import graph from "../images/graph.png";
 import user from "../images/user.png";
 import certi from "../images/certi.png";
-import clock from "../images/clock.png";
-import call from "../images/call.png";
+import clockImg from "../images/clockImg.png";
+import callImg from "../images/callImg.png";
 import {  useNavigate } from "react-router-dom";
 
 const Learning = () => {
@@ -37,7 +37,7 @@ const Learning = () => {
       about2: "Preparation",
     },
     {
-      img: clock,
+      img: clockImg,
       about: "Free Lifetime",
       about2: "Access",
     },
@@ -102,7 +102,7 @@ const Learning = () => {
 
         <div className="flex justify-center items-center gap-6 py-14 max-[650px]:py-4 bg-red-950 text-amber-600 h-16 w-60 sm:w-80 font-bold text-2xl rounded-2xl hover:bg-amber-700 hover:text-black border-2 border-black transition-all duration-300 ease-in-out">
           <img
-            src={call}
+            src={callImg}
             className="h-20 max-[650px]:h-8 transform hover:scale-110 hover:rotate-45 transition-transform duration-500"
             alt="Call Icon"
           />

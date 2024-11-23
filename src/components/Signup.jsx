@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import { FaUserPlus } from "react-icons/fa";
 import { MdAttachEmail } from "react-icons/md";
 import { RiLockPasswordFill } from "react-icons/ri";
-import Google from "../images/Google.png";
+import gicon from "../images/gicon.png";
 import axios from "axios";
-import facebook from "../images/facebook.png";
+import faceimg from "../images/faceimg.png";
 import { ImCross } from "react-icons/im";
 import { useNavigate } from "react-router-dom";
 
@@ -486,7 +486,7 @@ const Signup = () => {
           {/* Social SignUp Buttons */}
           <div className="logo flex mt-10 py-4  sm:w-96 md:w-[400px] lg:w-[400px] text-xl font-bold justify-evenly border-2 items-center border-black text-black">
             <div className="img">
-              <img src={facebook} alt="" className="h-8 sm:h-10 max-w-full" />
+              <img src={faceimg} alt="" className="h-8 sm:h-10 max-w-full" />
             </div>
             <div className="text text-center tracking-wider">
               Sign Up with Facebook
@@ -495,10 +495,10 @@ const Signup = () => {
 
           <div className="logo flex mt-10 py-4  sm:w-96 md:w-[400px] lg:w-[400px] text-xl font-bold justify-evenly border-2 items-center border-black text-black">
             <div className="img">
-              <img src={Google} alt="" className="h-8 sm:h-10 max-w-full" />
+              <img src={gicon} alt="" className="h-8 sm:h-10 max-w-full" />
             </div>
             <div className="text text-center tracking-wider">
-              Sign Up with Google
+              Sign Up with gicon
             </div>
           </div>
           </div>

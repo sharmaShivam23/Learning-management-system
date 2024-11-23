@@ -1,6 +1,6 @@
 
 import { useState, useCallback, useEffect } from "react";
-import Back from '../images/Back.png'
+import Backimg from '../images/Backimg.png'
 import { useNavigate } from "react-router-dom";
 
 function Password() {
@@ -32,7 +32,7 @@ function Password() {
  
   return (
     <>
-     <img src={Back} className="h-20" onClick={handleBack} alt="" />
+     <img src={Backimg} className="h-20" onClick={handleBack} alt="" />
       <div className="max-w-md mx-auto shadow-lg rounded-lg px-6 py-6 mt-10 bg-red-950 text-white">
         <h1 className="text-center mb-5 text-3xl font-extrabold text-orange-500">
           Password Generator

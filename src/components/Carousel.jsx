@@ -3,13 +3,13 @@ import learn from "../images/learn.jpg";
 import pexell from "../images/pexell.jpg";
 import pexelll from "../images/pexelll.jpg";
 import course from "../images/course.webp"
-import boys from "../images/boys.webp"
+import boysImg from "../images/boysImg.webp"
 import ed from "../images/ed.webp"
 import { FaHandPointRight } from "react-icons/fa";
 import { FaHandPointLeft } from "react-icons/fa";
 
 const Carousel = () => {
-  const images = [learn, pexell , pexelll , course , boys , ed];
+  const images = [learn, pexell , pexelll , course , boysImg , ed];
   const [currentIndex, setCurrentIndex] = useState(0); 
 
   function handleRight() {

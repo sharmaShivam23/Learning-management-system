@@ -7,7 +7,7 @@ import { GrNext } from "react-icons/gr";
 import { MdAccessTimeFilled } from "react-icons/md";
 import { IoStar } from "react-icons/io5";
 import Footer from './Footer';
-import News from '../images/News.jpeg';
+import newsimage from '../images/newsimage.jpeg';
 import card1 from '../images/card1.png';
 import { Link } from 'react-router-dom';
 
@@ -56,7 +56,7 @@ export default function Profile({ setUsername }) {
 
   const obj = [
     {
-      img: News,
+      img: newsimage,
       name: "Chat gpt for beginner",
       star: "4.45",
       rate: "1.5 Learners",
@@ -65,7 +65,7 @@ export default function Profile({ setUsername }) {
       btn: "Enroll now",
     },
     {
-      img: News,
+      img: newsimage,
       name: "Chat gpt for beginner",
       star: "4.45",
       rate: "1.5 Learners",
@@ -74,7 +74,7 @@ export default function Profile({ setUsername }) {
       btn: "Enroll now",
     },
     {
-      img: News,
+      img: newsimage,
       name: "Chat gpt for beginner",
       star: "4.45",
       rate: "1.5 Learners",
