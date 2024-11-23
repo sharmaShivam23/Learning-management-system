@@ -7,7 +7,7 @@ import { FaSquareInstagram } from "react-icons/fa6";
 import { FaEnvelopeOpenText } from "react-icons/fa6";
 import { IoIosContacts } from "react-icons/io";
 import { FaHandPointRight } from "react-icons/fa";
-import radioImg from '../images/radioImg.png';
+import radioimg from '../images/radioimg.png';
 
 
 
@@ -56,7 +56,7 @@ const Footer = () => {
   
         <div className=" p-6 rounded-lg text-center flex justify-center items-center flex-col">
           <div className="logo mb-6">
-            <img src={radioImg} className="h-20 mx-auto" alt="Learnify Logo" />
+            <img src={radioimg} className="h-20 mx-auto" alt="Learnify Logo" />
             <p className="text-3xl font-bold text-red-950">Learnify</p>
           </div>
           <ContactInfo region="India :" email="learnify@gmail.com" />
