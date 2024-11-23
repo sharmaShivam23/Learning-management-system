@@ -7,7 +7,7 @@ import { FaSquareInstagram } from "react-icons/fa6";
 import { FaEnvelopeOpenText } from "react-icons/fa6";
 import { IoIosContacts } from "react-icons/io";
 import { FaHandPointRight } from "react-icons/fa";
-import radio2 from '../images/radioo.png';
+import radioo from '../images/radioo.png';
 
 
 
@@ -48,21 +48,21 @@ const Footer = () => {
     <div className="mt-10  text-black py-12 -z-10 cursor-pointer">
       <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 -z-10">
         
-        {/* Course Sections */}
+        
         <CourseSection title="Data Science & Analytics Courses" />
         <CourseSection title="Advanced Analytics Courses" />
         <CourseSection title="Popular Machine Learning Courses" />
         
-        {/* Contact Section */}
+  
         <div className=" p-6 rounded-lg text-center flex justify-center items-center flex-col">
           <div className="logo mb-6">
-            <img src={radio2} className="h-20 mx-auto" alt="Learnify Logo" />
+            <img src={radioo} className="h-20 mx-auto" alt="Learnify Logo" />
             <p className="text-3xl font-bold text-red-950">Learnify</p>
           </div>
           <ContactInfo region="India :" email="learnify@gmail.com" />
           <ContactInfo region="US & Other Countries" email="us.learnify@gmail.com" />
 
-          {/* Social Icons */}
+          
           <div className="flex justify-center gap-5 mt-8 text-5xl">
             <FaFacebook  className="hover:text-blue-600 transition-all ease-in-out delay-0 duration-1000" aria-label="Facebook" />
             <IoLogoYoutube className="hover:text-red-700 transition-all ease-in-out delay-0 duration-1000" aria-label="YouTube" />

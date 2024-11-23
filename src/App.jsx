@@ -9,11 +9,12 @@ import Courses from './components/Course'
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Contact from './components/Contact'
 import Password from './components/Password'
-import ShowCourses from './components/ShowCourses'
+import ShowCourses from './components/showCourses'
+import Update from './components/update'
 
 
 function App() {
-  const [username, setUsername] = useState('');
+  const [username, setUsername] = useState(null);
 
   return (
     <>
@@ -29,6 +30,7 @@ function App() {
       <Route path="/Contact" element={<Contact/>}></Route>
       <Route path="/Password" element={<Password/>}></Route>
       <Route path="/ShowCourses" element={<ShowCourses/>}></Route>
+      <Route path="/Update" element={<Update/>}></Route>
     </Routes>
     </Router>
     </>

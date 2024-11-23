@@ -1,10 +1,9 @@
 import React from 'react'
-// import { FaUserPlus } from "react-icons/fa";
 import { MdAttachEmail } from "react-icons/md";
 import { useState } from 'react';
 import axios from 'axios'
 import { RiLockPasswordFill } from "react-icons/ri";
-// import Google from "../images/Google.png";
+import gicon from "../images/gicon.png";
 import {  useNavigate } from 'react-router-dom';
 
 const Login = () => {
@@ -34,7 +33,7 @@ const Login = () => {
         // localStorage.setItem("token", response.data.token);
         localStorage.setItem("token" , response.data.token);
         console.log("Response Data:", response.data);
-        // navigate("/profile")
+        navigate("/profile")
     }
     catch (error) {
         if (error.response) {
@@ -57,10 +56,10 @@ const Login = () => {
 
         <div className="logo flex mt-10 py-4 w-full sm:w-96 md:w-[600px] lg:w-[400px] text-xl font-bold justify-evenly border-2 items-center border-black text-black">
             <div className="img">
-              <img src="" alt="" className="h-8 sm:h-10 max-w-full" />
+              <img src={gicon} alt="" className="h-8 sm:h-10 max-w-full" />
             </div>
             <div className="text text-center tracking-wider">
-              Sign Up with Google
+              Sign Up with gicon
             </div>
           </div>
                

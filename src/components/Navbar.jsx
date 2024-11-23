@@ -1,21 +1,21 @@
 
 import React, { useState, useEffect } from 'react';
 
-import { Link, useNavigate } from 'react-router-dom'; // Added useNavigate
+import { Link, useNavigate } from 'react-router-dom'; 
 import { GiCrossedAxes } from "react-icons/gi";
-import radioo from "../images/radioo.png"; // Uncommented or added placeholder image
+import radioo from "../images/radioo.png";
 
 const Navbar = ({ username }) => {
+  const token = localStorage.getItem('token')
   const [menu, setMenu] = useState(false);
   const [scrollWidth, setScrollWidth] = useState(0);
-  const navigate = useNavigate(); // Added useNavigate hook
-
-  // Toggle menu
+  const navigate = useNavigate(); 
+ 
   const handleMenuToggle = () => {
     setMenu(!menu);
   };
 
-  // Handle scroll for dynamic line width
+  
   const handleScroll = () => {
     const scrollTop = window.scrollY;
     const docHeight = document.documentElement.scrollHeight - window.innerHeight;
@@ -32,19 +32,20 @@ const Navbar = ({ username }) => {
 
   const logOut = () => {
     localStorage.clear();
+    username = null
     navigate("/Signup");
   };
 
   const handleSelectChange = (event) => {
     if (event.target.value === "logout") {
-      logOut(); // Call the logout function
+      logOut(); 
     }
   };
-
+ 
   return (
     <div className='sticky top-0 py-3 backdrop-blur-lg z-50'>
       <nav className="flex justify-between items-center">
-        {/* Left Section */}
+    
         <div className="left flex items-center">
           <div className="logo">
             <img src={radioo} alt="Learnify Logo" className='h-12' />
@@ -54,9 +55,9 @@ const Navbar = ({ username }) => {
           </div>
         </div>
 
-        {/* Right Section */}
+      
         <div className="right flex gap-8 items-center">
-          {/* Mobile Menu Toggle */}
+
           <div className='md:hidden'>
             {!menu ? (
               <button onClick={handleMenuToggle} className="text-4xl font-bold text-black">&#8801;</button>
@@ -67,7 +68,7 @@ const Navbar = ({ username }) => {
             )}
           </div>
 
-          {/* Navigation Links */}
+    
           <ul className='hidden md:flex gap-8 text-lg font-bold'>
             <li><Link to="/Main">Home</Link></li>
             <li><Link to="/courses">Courses</Link></li>
@@ -76,31 +77,32 @@ const Navbar = ({ username }) => {
             <li className='hidden'><Link to="/ShowCourses">showCourses</Link></li>
           </ul>
 
-          {/* Buttons */}
+        
           <div className="hidden md:flex gap-4">
           <button className="bg-orange-700 text-white px-4 py-2 rounded mx-2">
             <Link to="/Signup">Sign Up</Link>
           </button>
-            {!username ? (
+            {token ? (
         <>
-          <button className="bg-orange-700 text-white px-4 py-2 rounded">
-            <Link to="/Login">Log in</Link>
-          </button>
-        </>
-      ) : (
-        <select
+          <select
           onChange={handleSelectChange}
           className="bg-orange-700 text-white px-4 py-2 rounded cursor-pointer"
         >
           <option value="">{username}</option>
           <option value="logout">Logout</option>
         </select>
+        </>
+      ) : (
+        <button className="bg-orange-700 text-white px-4 py-2 rounded">
+            <Link to="/Login">Log in</Link>
+          </button>
       )}
+
           </div>
         </div>
       </nav>
 
-      {/* Mobile Menu */}
+      
       {menu && (
         <div className="list2 fixed z-50 bg-amber-600 h-screen w-7/12 top-0 left-0">
           <ul className="flex flex-col justify-evenly items-center text-xl font-bold mt-10">
@@ -135,9 +137,5 @@ const Navbar = ({ username }) => {
 };
 
 export default Navbar;
-
-
-
-
 
 

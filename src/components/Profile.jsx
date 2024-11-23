@@ -1,9 +1,5 @@
 
 
-
-
-
-
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
@@ -13,6 +9,7 @@ import { IoStar } from "react-icons/io5";
 import Footer from './Footer';
 import News from '../images/News.jpeg';
 import card1 from '../images/card1.png';
+import { Link } from 'react-router-dom';
 
 export default function Profile({ setUsername }) {
   const [profile, setProfile] = useState(null);
@@ -25,7 +22,7 @@ export default function Profile({ setUsername }) {
 
   useEffect(() => {
   const handleClick = () => {
-    setIsLoading(true);
+    // setIsLoading(true);
     const token = localStorage.getItem('token')
     const header = {
       headers: {
@@ -35,14 +32,16 @@ export default function Profile({ setUsername }) {
 
     axios.get('https://lms-j25h.onrender.com/api/auth/profile', header)
       .then((res) => {
+        setUsername(res.data.username);
         setProfile(res.data);
               console.log(profile.email);
-              setUsername(res.data.username);
+              
       })
       
       .catch((err) => {
         console.log("error", err);
       })
+     
       
   }
 
@@ -51,7 +50,7 @@ export default function Profile({ setUsername }) {
 
   const handleRangeChange = (e, index) => {
     const newRatings = [...ratings];
-    newRatings[index] = e.target.value; // Update the rating for the specific card
+    newRatings[index] = e.target.value; 
     setRatings(newRatings);
   };
 
@@ -113,12 +112,18 @@ export default function Profile({ setUsername }) {
               {profile?.fullName}
             </div>
           </div>
+          <div className="user flex justify-between gap-20 items-center mt-5">
+            <div className="text-2xl font-bold tracking-wider">Date of Birth</div>
+            <div className="h-10 border-2 border-black w-96 px-3 flex justify-center items-center rounded-xl bg-orange-500 text-2xl">
+              {profile?.dateOfBirth}
+            </div>
+          </div>
         </div>
 
         <div className="div flex justify-center my-16">
-          <button className="border-2 border-red-700 p-4 px-10 rounded-xl font-bold text-black text-xl bg-white shadow-md hover:shadow-lg hover:bg-gradient-to-br from-violet-500 to-pink-600 hover:text-white transition duration-300 ease-in-out transform hover:scale-105">
-            Show All Courses
-          </button>
+          <Link to="/Update" className="border-2 border-red-700 p-4 px-10 rounded-xl font-bold text-black text-xl bg-white shadow-md hover:shadow-lg hover:bg-gradient-to-br from-violet-500 to-pink-600 hover:text-white transition duration-300 ease-in-out transform hover:scale-105">
+            Update
+          </Link>
         </div>
 
         <div className="right flex gap-32 flex-wrap">
@@ -151,7 +156,7 @@ export default function Profile({ setUsername }) {
                   min={0}
                   max={5}
                   value={ratings[index]}
-                  onChange={(e) => handleRangeChange(e, index)} // Update the specific card's rating
+                  onChange={(e) => handleRangeChange(e, index)} 
                   className="text-[#32CD32] cursor-pointer"
                 />
                 <div className="text-black text-xl">Rating: {ratings[index]} stars</div>
@@ -174,9 +179,3 @@ export default function Profile({ setUsername }) {
 
 
 
-
-
-//     </div>
-//     </div>
-//   );
-// }
