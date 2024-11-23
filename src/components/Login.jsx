@@ -4,7 +4,7 @@ import { MdAttachEmail } from "react-icons/md";
 import { useState } from 'react';
 import axios from 'axios'
 import { RiLockPasswordFill } from "react-icons/ri";
-import Google from "../images/Google.png";
+// import Google from "../images/Google.png";
 import {  useNavigate } from 'react-router-dom';
 
 const Login = () => {
@@ -57,7 +57,7 @@ const Login = () => {
 
         <div className="logo flex mt-10 py-4 w-full sm:w-96 md:w-[600px] lg:w-[400px] text-xl font-bold justify-evenly border-2 items-center border-black text-black">
             <div className="img">
-              <img src={Google} alt="" className="h-8 sm:h-10 max-w-full" />
+              <img src="" alt="" className="h-8 sm:h-10 max-w-full" />
             </div>
             <div className="text text-center tracking-wider">
               Sign Up with Google
