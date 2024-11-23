@@ -27,10 +27,10 @@ const Course = () => {
           </div>
         
           <div className="right w-full  sm:w-7/12 h-auto  flex justify-center items-center relative mt-10 -z-10">
-              <div className="first h-80  sm:ml-0 w-80 rounded-full bg-yellow- flex lg:w-[600px] lg:h-[600px] justify-center items-center relative">
-              <div className="sec h-72 w-72  bg-gradient-to-t from-pink-500 to-violet-600 lg:w-[520px] lg:h-[520px] lg:top-20 rounded-full absolute top-7 flex justify-center items-center">
+              <div className="first h-80 bg-[#fea035] sm:ml-0 w-80 rounded-full bg-yellow- flex lg:w-[600px] lg:h-[600px] justify-center items-center relative">
+              <div className="sec h-72 w-72  bg-[#ef9b34] lg:w-[520px] lg:h-[520px] lg:top-20 rounded-full absolute top-7 flex justify-center items-center">
                 <img src={BoyImg} className='h-80 lg:h-[550px]' alt="" />
-                 <div className="1 h-6 w-40 top-64 lg:w-60 lg:h-14 lg:top-[467px] text-center py-5 flex justify-center items-center bg-gradient-to-t from-pink-400 to-violet-500 border-2 border-black font-bold absolute">
+                 <div className="1 h-6 w-40 top-64 lg:w-60 lg:h-14 lg:top-[467px] text-center py-5 flex justify-center items-center bg- border-2 border-black font-bold absolute">
                     <p>Chat GPT & Gen AI</p>
                 </div>
                 
