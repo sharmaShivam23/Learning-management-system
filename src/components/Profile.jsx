@@ -19,28 +19,35 @@ export default function Profile({ setUsername }) {
   const [ratings, setRatings] = useState([0]); 
   const [error, setError] = useState('');
   const navigate = useNavigate();
+  // const [isLoading, setIsLoading] = useState(false); 
+
+  
 
   useEffect(() => {
-    const fetchProfile = async () => {
-      const token = localStorage.getItem('token');
-      if (!token) {
-        return;
+  const handleClick = () => {
+    setIsLoading(true);
+    const token = localStorage.getItem('token')
+    const header = {
+      headers: {
+        Authorization: `Bearer ${token}`
       }
+    }
 
-      try {
-        const response = await axios.get('https://e-learning-slfj.onrender.com/user/profile/', {
-          headers: { Authorization: `Bearer ${token}` },
-        });
-        setProfile(response.data);
-        setUsername(response.data.username);
-      } catch (error) {
-        setError('Failed to load profile. Please log in again.');
-        localStorage.removeItem('token');
-      }
-    };
+    axios.get('https://lms-j25h.onrender.com/api/auth/profile', header)
+      .then((res) => {
+        setProfile(res.data);
+              console.log(profile.email);
+              setUsername(res.data.username);
+      })
+      
+      .catch((err) => {
+        console.log("error", err);
+      })
+      
+  }
 
-    fetchProfile();
-  }, [navigate]);
+  handleClick();
+} , [])
 
   const handleRangeChange = (e, index) => {
     const newRatings = [...ratings];
@@ -79,7 +86,7 @@ export default function Profile({ setUsername }) {
   ];
 
   if (error) return <p className="text-red-500">{error}</p>;
-
+  
   return (
     <div className="main flex justify-center items-center">
       <div className="mx-auto text-center font-bold mt-8 flex justify-center items-center flex-col">
@@ -103,7 +110,7 @@ export default function Profile({ setUsername }) {
           <div className="user flex justify-between gap-20 items-center mt-5">
             <div className="text-2xl font-bold tracking-wider">Full Name</div>
             <div className="h-10 border-2 border-black w-96 px-3 flex justify-center items-center rounded-xl bg-orange-500 text-2xl">
-              {profile?.fullname}
+              {profile?.fullName}
             </div>
           </div>
         </div>

@@ -1,10 +1,12 @@
 import React from 'react'
+import axios from 'axios'
 
 const ShowCourses = () => {
+
+  
   return (
     <div>
-      <p>No cousre</p>
-      <p>yet</p>
+      
       
     </div>
   )

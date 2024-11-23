@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import card1 from "../images/card1.png";
 import card2m from "../images/card2m.png";
 import card3 from "../images/card3.png";
@@ -14,6 +14,8 @@ import { FaCheckCircle } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 
 const Trending = () => {
+
+  const [rating , setRating] = useState(null)
   let Navigate = useNavigate();
   let obj = [
     {
@@ -22,6 +24,7 @@ const Trending = () => {
       about2: "industry 's standard dummy",
       title: "(14 courses)",
       bottom: "bottom-[178px]",
+      hover: "bottom-[190px]",
       bg: "bg-yellow-300",
     },
     {
@@ -91,7 +94,7 @@ const Trending = () => {
       head: "Personal Plan",
       head2: "For you",
       icon: <IoPeopleSharp />,
-      p1: "individual",
+      p1: "2 people",
       p2: "Starting at $850 per month",
       p3: "Billed monthly or annually. Cancel anytime",
     },
@@ -99,7 +102,7 @@ const Trending = () => {
       head: "Personal Plan",
       head2: "For you",
       icon: <IoIosPeople />,
-      p1: "individual",
+      p1: "More than 2 people",
       p2: "Starting at $850 per month",
       p3: "Billed monthly or annually. Cancel anytime",
     },
@@ -121,7 +124,7 @@ const Trending = () => {
             <img
               src={item.img}
               alt="image"
-              className={`absolute ${item.bottom} ${item.right} h-80 hover:bottom-32`}
+              className={`absolute ${item.bottom} ${item.right} h-80`}
             />
 
             <div className="card h-96 w-80 bg-red-500">
@@ -136,8 +139,18 @@ const Trending = () => {
                 <div className="title mt-3">{item.title}</div>
                    
                  
-                <div className="rating flex justify-center gap-2 text-3xl mt-5 text-yellow-400 animate-bounce  ">
-                  <div className="star1">
+                <div className="rating flex justify-center gap-2 text-3xl mt-5  animate-bounce  ">
+                  {[...Array(5)].map((star, index) => (
+                    
+                    <>
+                     <label>
+                      {/* <input type="radio" name="rate" value={index+1} onClick={() => setRating(index+1)}/> */}
+                    <IoStar/>
+                    </label>
+                    </>
+                   
+                ))}
+                  {/* <div className="star1">
                     <IoStar />
                   </div>
                   <div className="star2">
@@ -151,7 +164,7 @@ const Trending = () => {
                   </div>
                   <div className="star5">
                     <IoStar />
-                  </div>
+                  </div> */}
                 </div>
                   
               </div>
