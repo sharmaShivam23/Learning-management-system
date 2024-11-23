@@ -10,7 +10,7 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Contact from './components/Contact'
 import Password from './components/Password'
 import ShowCourses from './components/ShowCourses'
-import Update from './components/update'
+import Update from './components/Update'
 
 
 function App() {
