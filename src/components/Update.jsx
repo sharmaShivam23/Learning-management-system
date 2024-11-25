@@ -30,7 +30,7 @@ const Profile = () => {
         setProfile(response.data);
       } catch (err) {
         console.error("Error fetching profile:", err.response?.data || err);
-        setError("Failed to load profile. Please try again.");
+        setError(err.message);
       }
     };
 

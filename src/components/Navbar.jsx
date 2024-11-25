@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 
 import { Link, useNavigate } from "react-router-dom";
 import { GiCrossedAxes } from "react-icons/gi";
-// import logimg from "../images/logimg.png";
+import logimg from "../images/logimg.png";
 
 const Navbar = ({ username }) => {
   const token = localStorage.getItem("token");
@@ -46,7 +46,7 @@ const Navbar = ({ username }) => {
       <nav className="flex justify-between items-center">
         <div className="left flex items-center">
           <div className="logo">
-            <img src="" alt="Learnify Logo" className="h-12" />
+            <img src={logimg} alt="Learnify Logo" className="h-12" />
           </div>
           <div className="text flex justify-center font-bold text-orange-900 tracking-wider text-xl ml-3">
             learnify
@@ -100,12 +100,16 @@ const Navbar = ({ username }) => {
               <span className="absolute left-0 bottom-0 w-0 h-[4px] bg-black transition-all ease-in-out duration-500 group-hover:w-full"></span>
             </li>
 
+            <li className="relative group"><Link to="/Assistant" className="transition-all ease-in-out duration-300 text-black" >
+                Assistant
+              </Link>
+              <span className="absolute left-0 bottom-0 w-0 h-[4px] bg-black transition-all ease-in-out duration-500 group-hover:w-full"></span>
+            </li>
+
           </ul>
 
           <div className="hidden md:flex gap-4">
-            <button className="bg-orange-700 text-white px-4 py-2 rounded mx-2">
-              <Link to="/Signup">Sign Up</Link>
-            </button>
+          
             {token ? (
               <>
                 <select
@@ -117,16 +121,21 @@ const Navbar = ({ username }) => {
                 </select>
               </>
             ) : (
+              <>
+              <button className="bg-orange-700 text-white px-4 py-2 rounded mx-2">
+              <Link to="/Signup">Sign Up</Link>
+            </button>
               <button className="bg-orange-700 text-white px-4 py-2 rounded">
                 <Link to="/Login">Log in</Link>
               </button>
+              </>
             )}
           </div>
         </div>
       </nav>
 
       {menu && (
-        <div className="list2 fixed z-50 bgblack h-screen w-7/12 top-0 left-0">
+        <div className="list2 fixed z-50 bg-amber-500 h-screen w-7/12 top-0 left-0">
           <ul className="flex flex-col justify-evenly items-center text-xl font-bold mt-10">
             <li>
               <img src={logimg} alt="Learnify Logo" className="h-16" />
@@ -147,6 +156,9 @@ const Navbar = ({ username }) => {
               <Link to="/profile">Profile</Link>
             </li>
             <li className="mt-10">
+              <Link to="/Assistant">Assistant</Link>
+            </li>
+            <li className="mt-10">
               <button className="bg-orange-900 text-white px-4 py-2 rounded">
                 <Link to="/Signup">Sign Up</Link>
               </button>
@@ -155,6 +167,9 @@ const Navbar = ({ username }) => {
               <button className="bg-orange-900 text-white px-4 py-2 rounded mt-10">
                 <Link to="/Login">Log in</Link>
               </button>
+            </li>
+            <li>
+             
             </li>
           </ul>
         </div>

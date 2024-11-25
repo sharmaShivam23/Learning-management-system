@@ -12,9 +12,21 @@ const Contact = () => {
   let [email, setemail] = useState("");
   let [fullName, setname] = useState("");
   let [username, setuser] = useState("");
+  let [error , setError] = useState("")
+  
+  const token = localStorage.getItem("token")
 
+
+    
   async function handleSubmit(e) {
     e.preventDefault();
+
+    if (!token) {
+      alert("Please sign up or log in first.");
+      remove()
+      return;
+    }
+  
 
     if (clear()) {
       let item = {
@@ -26,21 +38,24 @@ const Contact = () => {
 
       console.log(item);
       axios
-        .post("https://lms-j25h.onrender.com/contact", item, {
+        .post("https://lms-j25h.onrender.com/api/contact", item, {
           headers: {
             "Content-Type": "application/json",
           },
         })
         .then((res) => {
           console.log(res);
-          alert("success");
+          alert("Thanks for contacting us.");
+          remove()
         })
-        .catch((err) => {
-          console.log(err);
+        .catch((error) => {
+          console.log(error);
+         setError(error.message)
         });
     }
   }
-
+ 
+ 
   function clear() {
     
     if(username =="" || contactNumber =="" || email == "" || fullName==""){
@@ -70,9 +85,16 @@ const Contact = () => {
 
     return true;
   }
+  function remove(){
+    setname("")
+    setemail("")
+    setcontact("")
+    setuser("")
+  }
 
   return (
     <>
+    {error ? <p className="text-2xl text-red-600 text-center">{error}</p> : "" }
       <form onSubmit={handleSubmit}>
         <h1 className="text-4xl text-center font-bold  bg-red-950 py-5 text-white mt-1">
           Contact
@@ -181,6 +203,7 @@ const Contact = () => {
           </button>
         </div>
       </form>
+
     </>
   );
 };

@@ -17,6 +17,7 @@ const Signup = () => {
   let [email, setemail] = useState("");
   let [pass, setpass] = useState("");
   let [cpass, setcpass] = useState("");
+  let [error , setError] = useState("")
 
   const [showPassword, setShowPassword] = useState(false);
   const [showmsg, setShowmsg] = useState(false);
@@ -56,12 +57,13 @@ const Signup = () => {
         })
         .then((res) => {
           console.log(res);
-          // localStorage.setItem("token", res.data.token);
+          // localStorage.setItem("token", response.data.token);
           alert("success");
           navigate("/login")
         })
-        .catch((err) => {
-          console.log(err);
+        .catch((error) => {
+          console.log(error);
+          setError(error.message)
         });
       // let formData = new FormData();
       // formData.append("userPhoto", userPhoto);
@@ -256,10 +258,12 @@ const Signup = () => {
 
   return (
     <>
-      <form onSubmit={handleSubmit} className="overflow-x-hidden">
+      
+        <form onSubmit={handleSubmit} className="overflow-x-hidden">
         <h1 className="text-4xl text-center font-bold mt-1 w-full bg-red-950 py-5 text-white h-auto">
           Registration
         </h1>
+        {error && <p className="text-2xl mt-2 text-red-600 text-center">{`Failed to Signup : ${error}  Try Again`}</p>}
 
         <div className="form px-4 md:px-8 lg:px-16 max-w-full">
         {/* <div className="first mt-4 w-full md:w-[400px] lg:w-[800px]">
@@ -599,7 +603,7 @@ const Signup = () => {
         {/* Sign Up Button */}
         <div className="secondpart text-center mt-10 flex justify-center items-center flex-col">
           <div className="btn">
-            <button className="text-red-950 py-4 bg-orange-500 w-full sm:w-96 lg:w-[400px] text-xl md:text-2xl font-bold">
+            <button className="text-red-950 py-4 bg-transparent border-2  w-full sm:w-96 lg:w-[400px] text-xl md:text-2xl border-red-950 font-bold hover:bg-gradient-to-br from-yellow-500 to-orange-600 hover:text-white transition duration-300 ease-in-out transform hover:scale-105 hover:border-2 hover:border-black">
               Sign Up
             </button>
           </div>
@@ -627,7 +631,7 @@ const Signup = () => {
                 <img src={gicon} alt="" className="h-8 sm:h-10 max-w-full" />
               </div>
               <div className="text text-center tracking-wider">
-                Sign Up with gicon
+                Sign Up with Google
               </div>
             </div>
           </div>

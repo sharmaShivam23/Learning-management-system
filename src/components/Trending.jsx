@@ -222,7 +222,7 @@ const Trending = () => {
 
         <div className="cards mt-20 flex justify-evenly flex-wrap items-center gap-16">
           {obj3.map((card, index) => (
-            <div
+            <div key={index}
               className={`card h-auto sm:w-96 w-80 ${index} rounded-2xl border-4 border-yellow-300`}
             >
               <div className="upper h-52 bg-yellow-300 rounded-t-2xl">
