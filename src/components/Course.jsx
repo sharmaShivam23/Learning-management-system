@@ -35,15 +35,15 @@ const Course = () => {
                 </div>
                 
                 <div className=" h-6 w-40 top-80 right-96 lg:w-60 lg:h-14 text-center border-2 border-black py-5 flex justify-center items-center bg-[#F46F36]  font-bold  absolute">
-                    <p>Chat GPT & Gen AI</p>
+                    <p>Web Development</p>
                 </div>
                
                 <div className="1 h-6 w-40  py-5  lg:w-60  top-48 right-[500px]  lg:h-14 text-center flex justify-center items-center bg-[#F46F36] border-2 border-black font-bold  absolute">
-                    <p>Chat GPT & Gen AI</p>
+                    <p>Data Science</p>
                 </div>
                
                 <div className="1 h-6 w-40  py-5 lg:w-60 bottom-48  top-14 right-[400px]  lg:h-14 text-center flex justify-center items-center bg-[#F46F36] border-2 border-black font-bold  absolute">
-                    <p>Chat GPT & Gen AI</p>
+                    <p>Machine Learning</p>
                 </div>
                
               </div>

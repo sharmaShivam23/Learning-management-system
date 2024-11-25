@@ -20,7 +20,7 @@ const Trending = () => {
   let obj = [
     {
       img: card1,
-      about: "Lorem ipsum has been the",
+      about: "Learnify : Signup to get more info",
       about2: "industry 's standard dummy",
       title: "(14 courses)",
       bottom: "bottom-[178px]",
@@ -29,17 +29,17 @@ const Trending = () => {
     },
     {
       img: card2m,
-      about: "Lorem ipsum has been the",
+      about: "Learnify : Go to courses section",
       about2: "industry 's standard dummy",
-      title: "(14 courses)",
+      title: "(15 courses)",
       bottom: "bottom-[192px]",
       bg: "bg-[#32CD32]",
     },
     {
       img: card3,
-      about: "Lorem ipsum has been the",
+      about: "Learnify : Contact us",
       about2: "industry 's standard dummy",
-      title: "(14 courses)",
+      title: "(10 courses)",
       bottom: "bottom-[193px]",
       right: "right-[38px]",
       bg: "bg-blue-400",
@@ -49,7 +49,7 @@ const Trending = () => {
   let obj2 = [
     {
       img: image1,
-      head: "Lorem ipsum has been the",
+      head: "Learnify : Signup to get more info",
       p1: "Explore any interest ot trending topic,",
       p2: "take prerequisites, and advance your",
       p3: "Skills",
@@ -57,7 +57,7 @@ const Trending = () => {
     },
     {
       img: image2,
-      head: "Lorem ipsum has been the",
+      head: "Learnify : Signup to get more info",
       p1: "Explore any interest ot trending topic,",
       p2: "take prerequisites, and advance your",
       p3: "Skills",
@@ -65,7 +65,7 @@ const Trending = () => {
     },
     {
       img: lockerimage,
-      head: "Lorem ipsum has been the",
+      head: "Learnify : Signup to get more info",
       p1: "Explore any interest ot trending topic,",
       p2: "take prerequisites, and advance your",
       p3: "Skills",
@@ -73,7 +73,7 @@ const Trending = () => {
     },
     {
       img: bulbimg,
-      head: "Lorem ipsum has been the",
+      head: "Learnify : Signup to get more info",
       p1: "Explore any interest ot trending topic,",
       p2: "take prerequisites, and advance your",
       p3: "Skills",
@@ -95,7 +95,7 @@ const Trending = () => {
       head2: "For you",
       icon: <IoPeopleSharp />,
       p1: "2 people",
-      p2: "Starting at $850 per month",
+      p2: "Starting at $950 per month",
       p3: "Billed monthly or annually. Cancel anytime",
     },
     {
@@ -103,7 +103,7 @@ const Trending = () => {
       head2: "For you",
       icon: <IoIosPeople />,
       p1: "More than 2 people",
-      p2: "Starting at $850 per month",
+      p2: "Starting at $250 per month",
       p3: "Billed monthly or annually. Cancel anytime",
     },
   ];
@@ -182,10 +182,10 @@ const Trending = () => {
         </h1>
         <div className="text-center mt-6">
           <p>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptate,
-            minima. Lorem ipsum dolor sit amet.
+            LGet more Information about  consectetur adipisicing elit. Voluptate,
+            minima. Get more Information about .
           </p>
-          <p>Lorem ipsum dolor sit amet consectetur.</p>
+          <p>Get more Information about  consectetur.</p>
         </div>
 
         <div className="cards flex justify-evenly items-center mt-10 flex-wrap">
@@ -256,10 +256,10 @@ const Trending = () => {
                       <FaCheckCircle />
                     </div>
                     <div className="text hidden sm:block">
-                      Lorem ipsum dolor sit amet consectetur.{" "}
+                      Get more Information about  consectetur.{" "}
                     </div>
                     <div className="text block sm:hidden">
-                      Lorem ipsum dolor sit amet.{" "}
+                      Get more Information about .{" "}
                     </div>
                   </div>
                   <div className="first flex mt-2">
@@ -267,10 +267,10 @@ const Trending = () => {
                       <FaCheckCircle />
                     </div>
                     <div className="text hidden sm:block">
-                      Lorem ipsum dolor sit amet consectetur.{" "}
+                      Get more Information about  consectetur.{" "}
                     </div>
                     <div className="text block sm:hidden">
-                      Lorem ipsum dolor sit amet.{" "}
+                      Get more Information about .{" "}
                     </div>
                   </div>
                   <div className="first flex mt-2">
@@ -278,10 +278,10 @@ const Trending = () => {
                       <FaCheckCircle />
                     </div>
                     <div className="text hidden sm:block">
-                      Lorem ipsum dolor sit amet consectetur.{" "}
+                      Get more Information about  consectetur.{" "}
                     </div>
                     <div className="text block sm:hidden">
-                      Lorem ipsum dolor sit amet.{" "}
+                      Get more Information about .{" "}
                     </div>
                   </div>
                   <div className="first flex mt-2">
@@ -289,10 +289,10 @@ const Trending = () => {
                       <FaCheckCircle />
                     </div>
                     <div className="text hidden sm:block">
-                      Lorem ipsum dolor sit amet consectetur.{" "}
+                      Get more Information about  consectetur.{" "}
                     </div>
                     <div className="text block sm:hidden">
-                      Lorem ipsum dolor sit amet.{" "}
+                      Get more Information about .{" "}
                     </div>
                   </div>
                   <div className="first flex mt-2">
@@ -300,10 +300,10 @@ const Trending = () => {
                       <FaCheckCircle />
                     </div>
                     <div className="text hidden sm:block">
-                      Lorem ipsum dolor sit amet consectetur.{" "}
+                      Get more Information about  consectetur.{" "}
                     </div>
                     <div className="text block sm:hidden">
-                      Lorem ipsum dolor sit amet.{" "}
+                      Get more Information about .{" "}
                     </div>
                   </div>
                   <div className="first flex mt-2">
@@ -311,10 +311,10 @@ const Trending = () => {
                       <FaCheckCircle />
                     </div>
                     <div className="text hidden sm:block">
-                      Lorem ipsum dolor sit amet consectetur.{" "}
+                      Get more Information about  consectetur.{" "}
                     </div>
                     <div className="text block sm:hidden">
-                      Lorem ipsum dolor sit amet.{" "}
+                      Get more Information about .{" "}
                     </div>
                   </div>
                 </div>
@@ -329,17 +329,17 @@ const Trending = () => {
         <h1 className="text-white text-4xl mt-4 font-bold">Learnify Plus</h1>
         <div className="text mt-9">
           <p className="hidden lg:block">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit aliquid
+            Get more Information about  consectetur adipisicing elit. Sit aliquid
             saepe asperiores dignissimos itaque consequatur beatae! Incidunt
             distentiu!
           </p>
           <p className="block lg:hidden">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit aliq
+            Get more Information about  consectetur adipisicing elit. Sit aliq
           </p>
           <p className="mt-2 hidden lg:block">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            Get more Information about  consectetur adipisicing elit.
           </p>
-          <p className="mt-2 block lg:hidden">Lorem ipsum dolor sit amet.</p>
+          <p className="mt-2 block lg:hidden">Get more Information about .</p>
         </div>
 
         <div className="btn mt-8">

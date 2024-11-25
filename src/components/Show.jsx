@@ -32,7 +32,25 @@ const Show = () => {
             } , 
             {
               img :newsimage,
-              name : "Chat gpt for begginer",
+              name : "Web Development",
+              star : ".45",
+              rate : ".1.5 Learners",
+              rate2 : "Begineer",
+              text : "7.5 hour",
+              btn : "Enroll now"
+            } , 
+            {
+              img :newsimage,
+              name : "Data Science",
+              star : "2.45",
+              rate : ".1.5 Learners",
+              rate2 : "Begineer",
+              text : "7.5 hour",
+              btn : "Enroll now"
+            } , 
+            {
+              img :newsimage,
+              name : "Machine Learning",
               star : "4.45",
               rate : ".1.5 Learners",
               rate2 : "Begineer",
@@ -41,38 +59,20 @@ const Show = () => {
             } , 
             {
               img :newsimage,
-              name : "Chat gpt for begginer",
+              name : "Full Stack",
               star : "4.45",
-              rate : ".1.5 Learners",
+              rate : ".1 Learners",
               rate2 : "Begineer",
-              text : "7.5 hour",
+              text : "8 hour",
               btn : "Enroll now"
             } , 
             {
               img :newsimage,
               name : "Chat gpt for begginer",
-              star : "4.45",
-              rate : ".1.5 Learners",
+              star : "5.5",
+              rate : "2 Learners",
               rate2 : "Begineer",
-              text : "7.5 hour",
-              btn : "Enroll now"
-            } , 
-            {
-              img :newsimage,
-              name : "Chat gpt for begginer",
-              star : "4.45",
-              rate : ".1.5 Learners",
-              rate2 : "Begineer",
-              text : "7.5 hour",
-              btn : "Enroll now"
-            } , 
-            {
-              img :newsimage,
-              name : "Chat gpt for begginer",
-              star : "4.45",
-              rate : ".1.5 Learners",
-              rate2 : "Begineer",
-              text : "7.5 hour",
+              text : "9 hour",
               btn : "Enroll now"
             } , 
             

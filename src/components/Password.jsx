@@ -19,7 +19,7 @@ function Password() {
     let pass = "";
     let str = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
     if (numberAllowed) str += "1234567890";
-    if (charAllowed) str += "+=-_@#!%^&*/";
+    if (charAllowed) str += "@#$%&";
     for (let i = 0; i < length; i++) {
       pass += str[Math.floor(Math.random() * str.length)];
     }

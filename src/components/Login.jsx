@@ -5,10 +5,16 @@ import axios from 'axios'
 import { RiLockPasswordFill } from "react-icons/ri";
 import gicon from "../images/gicon.png";
 import {  useNavigate } from 'react-router-dom';
+import { useAuth0 } from '@auth0/auth0-react';
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 
 
 const Login = () => {
 
+  const {user , loginWithRedirect , logout} = useAuth0();
+  
   
   let navigate = useNavigate()
   
@@ -60,17 +66,18 @@ const Login = () => {
   return (
     <>
       <h1 className='text-4xl text-center font-bold  bg-red-950 py-5 text-white mt-10'>Login</h1>
+      <button onClick={(e => logout())}>Logout</button>
       <form onSubmit={handleSubmit} className='flex justify-center items-center flex-col'>
         <div className="inputs text-xl md:text-2xl lg:text-3xl flex justify-center items-center flex-col">
 
-        <div className="logo flex mt-10 py-4 max-[400px]:w-[300px] max-[750px]:w-[400px] sm:w-96 md:w-[600px] lg:w-[400px] text-xl font-bold justify-evenly border-2 items-center border-black text-black">
+        {/* <div className="logo flex mt-10 py-4 max-[400px]:w-[300px] max-[750px]:w-[400px] sm:w-96 md:w-[600px] lg:w-[400px] text-xl font-bold justify-evenly border-2 items-center border-black text-black">
             <div className="img">
               <img src={gicon} alt="" className="h-8 sm:h-10 max-w-full" />
             </div>
-            <div className="text text-center tracking-wider">
+            <div className="text text-center tracking-wider" onClick={e => loginWithRedirect()}>
               Sign Up with Google
             </div>
-          </div>
+          </div> */}
                
           {/* <div className="or h-10 flex justify-center w-full items-center mt-5">
             <span className="border-2 mr-2 w-96 border-black"></span>

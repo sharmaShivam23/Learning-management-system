@@ -74,10 +74,10 @@ const { enrolledCourses, setEnrolledCourses } = useContext(ShowCardContext);
     const handleEnroll = async () => {
       const token = localStorage.getItem("token"); // Ensure the user is logged in and token is available.
   
-      if (!token) {
-        alert("You need to log in to enroll in a course!");
-        return;
-      }
+      // if (!token) {
+      //   alert("You need to log in to enroll in a course!");
+      //   return;
+      // }
   
       try {
         // Making the POST request to enroll the course.
@@ -107,13 +107,20 @@ const { enrolledCourses, setEnrolledCourses } = useContext(ShowCardContext);
 
 
   useEffect(() => {
-    if (interest) {
+    
       fetchArticles();
-    }
-    else{
+    
       fetchArticles2();
-    }
+    
   }, [interest]); 
+  // useEffect(() => {
+  //   if (interest) {
+  //     fetchArticles();
+  //   }
+  //   else{
+  //     fetchArticles2();
+  //   }
+  // }, [interest]); 
 
  
 
@@ -122,13 +129,13 @@ const { enrolledCourses, setEnrolledCourses } = useContext(ShowCardContext);
     setCoursetitle(course.course_title)
     }
     else{
-      setCoursetitle(course.title)
+      setCoursetitle(course.course_title)
     }
     if (!enrolledCourses.some((enrolled) => enrolled.title === course.title)) {
       setEnrolledCourses([...enrolledCourses, course]);
-      alert(`${course.title} added to your profile!`);
+      alert(`${course.course_title} added to your profile!`);
     } else {
-      alert(`${course.title} is already in your profile.`);
+      alert(`${course.course_title} is already in your profile.`);
     }
   };
 
@@ -227,6 +234,7 @@ const { enrolledCourses, setEnrolledCourses } = useContext(ShowCardContext);
                   </div>
                
                   <button className="flex items-center gap-2 text-black font-bold text-lg hover:text-blue-800" onClick={() => handleCourse(item)}>
+                    {/* <a href="">Enroll now</a> <GrNext /> */}
                     <a href={item.url}>Enroll now</a> <GrNext />
                   </button>
                 </div>

@@ -2,9 +2,13 @@ import React, { useState, useEffect } from "react";
 
 import { Link, useNavigate } from "react-router-dom";
 import { GiCrossedAxes } from "react-icons/gi";
-// import logimg from "../images/logimg.png";
+import logimg from "../images/logimg.png";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 
 const Navbar = ({ username }) => {
+  
   const token = localStorage.getItem("token");
   const [menu, setMenu] = useState(false);
   const [scrollWidth, setScrollWidth] = useState(0);
@@ -42,11 +46,13 @@ const Navbar = ({ username }) => {
   };
 
   return (
+    <>
+    <ToastContainer/>
     <div className="sticky top-0 py-3 backdrop-blur-lg z-50">
       <nav className="flex justify-between items-center">
         <div className="left flex items-center">
           <div className="logo">
-            <img src="" alt="Learnify Logo" className="h-12" />
+            <img src={logimg} alt="Learnify Logo" className="h-12" />
           </div>
           <div className="text flex justify-center font-bold text-orange-900 tracking-wider text-xl ml-3">
             learnify
@@ -181,6 +187,7 @@ const Navbar = ({ username }) => {
         style={{ width: `${scrollWidth}%` }}
       ></div>
     </div>
+    </>
   );
 };
 

@@ -7,6 +7,8 @@ import axios from "axios";
 import faceimg from "../images/faceimg.png";
 import { ImCross } from "react-icons/im";
 import { useNavigate } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Signup = () => {
   let navigate = useNavigate();
@@ -17,7 +19,7 @@ const Signup = () => {
   let [email, setemail] = useState("");
   let [pass, setpass] = useState("");
   let [cpass, setcpass] = useState("");
-  let [error , setError] = useState("")
+  let [error, setError] = useState("");
 
   const [showPassword, setShowPassword] = useState(false);
   const [showmsg, setShowmsg] = useState(false);
@@ -40,17 +42,18 @@ const Signup = () => {
         // fullname: fullName,
         // password: pass,
         // userPhoto,
-          fullName,
+        fullName,
         username,
-        dateOfBirth : dob,
+        dateOfBirth: dob,
         email,
-        password : pass,
-        confirmPassword : cpass,
+        password: pass,
+        confirmPassword: cpass,
       };
 
       console.log(item);
       // axios.post(" https://e-learning-slfj.onrender.com/user/signup/", item, {
-      axios.post("https://lms-j25h.onrender.com/api/auth/register", item, {
+      axios
+        .post("https://lms-j25h.onrender.com/api/auth/register", item, {
           headers: {
             "Content-Type": "application/json",
           },
@@ -59,11 +62,11 @@ const Signup = () => {
           console.log(res);
           // localStorage.setItem("token", response.data.token);
           alert("success");
-          navigate("/login")
+          navigate("/login");
         })
         .catch((error) => {
           console.log(error);
-          setError(error.message)
+          setError(error.message);
         });
       // let formData = new FormData();
       // formData.append("userPhoto", userPhoto);
@@ -73,7 +76,7 @@ const Signup = () => {
       // formData.append("email", email);
       // formData.append("password", pass);
       // formData.append("confirmPassword", cpass);
-      
+
       // axios
       //   .post("https://lms-j25h.onrender.com/api/auth/register", formData, {
       //     headers: {
@@ -102,6 +105,7 @@ const Signup = () => {
       username == ""
     ) {
       alert("Fill all the fields first");
+      return false;
     }
     if (dob === "") {
       setdobValid(false);
@@ -125,7 +129,7 @@ const Signup = () => {
     }
     if (fullName) {
       if (fullName.split("").some((char) => !isNaN(char))) {
-        alert("Name can't be a number");
+        toast.error("Name can't be a number");
         setnameValid(false);
       } else {
         setnameValid(true);
@@ -133,7 +137,7 @@ const Signup = () => {
     }
     if (email) {
       if (!email.includes("@gmail.com")) {
-        alert("Email nust ends with @gmail.com");
+        toast.error("Email nust ends with @gmail.com");
         setemailValid(false);
       } else {
         setemailValid(true);
@@ -141,7 +145,7 @@ const Signup = () => {
     }
     if (username) {
       if (!username.includes("123")) {
-        alert("username must have with 123");
+        toast.error("username must have with 123");
         setuserValid(false);
       } else {
         setuserValid(true);
@@ -149,16 +153,18 @@ const Signup = () => {
     }
     if (pass) {
       if (pass.length < 6) {
-        alert("Password must contain at least 6 characters");
+        toast.error("Password must contain at least 6 characters");
+        
         setpassValid(false);
       } else if (!containSpecial(pass)) {
-        alert("Password must contain special characters");
+        toast.error("Password must contain special characters");
+        
         setpassValid(false);
       } else if (!containsUpper(pass)) {
-        alert("Password must contain uppercase letters");
+        toast.error("Password must contain uppercase letters");
         setpassValid(false);
       } else if (!containsLower(pass)) {
-        alert("Password must contain lowercase letters");
+        toast.error("Password must contain lowercase letters");
         setpassValid(false);
       } else {
         setpassValid(true);
@@ -167,7 +173,7 @@ const Signup = () => {
 
     if (cpass) {
       if (pass != cpass) {
-        alert("Password and Confirm password must same");
+        toast.error("Password and Confirm password must same");
         setpassValid(false);
         setcpassValid(false);
       } else {
@@ -250,23 +256,25 @@ const Signup = () => {
     setShowmsg(false);
   }
   // function handleImg(e) {
-  //   console.log(e.target.files[0]); 
-  //   setuserPhoto(e.target.files[0]); 
+  //   console.log(e.target.files[0]);
+  //   setuserPhoto(e.target.files[0]);
   //   // setPreview(URL.createObjectURL(e.target.files[0]))
   // }
-  
 
   return (
     <>
-      
-        <form onSubmit={handleSubmit} className="overflow-x-hidden">
+      <ToastContainer />
+
+      <form onSubmit={handleSubmit} className="overflow-x-hidden">
         <h1 className="text-4xl text-center font-bold mt-1 w-full bg-red-950 py-5 text-white h-auto">
           Registration
         </h1>
-        {error && <p className="text-2xl mt-2 text-red-600 text-center">{`Failed to Signup : ${error}  Try Again`}</p>}
+        {error && (
+          <p className="text-2xl mt-2 text-red-600 text-center">{`Failed to Signup : ${error}  Try Again`}</p>
+        )}
 
         <div className="form px-4 md:px-8 lg:px-16 max-w-full">
-        {/* <div className="first mt-4 w-full md:w-[400px] lg:w-[800px]">
+          {/* <div className="first mt-4 w-full md:w-[400px] lg:w-[800px]">
               <label
                 htmlFor="img"
                 className="font-bold text-xl mb-4 text-red-950 ml-1"
@@ -299,7 +307,6 @@ const Signup = () => {
                 />
               </div>
             </div> */}
-
 
           <div className="inputs text-xl md:text-2xl lg:text-3xl flex justify-center items-center flex-col">
             {/* Full Name Input */}
@@ -474,8 +481,6 @@ const Signup = () => {
               </div>
             </div>
 
-           
-
             {/* Password Input */}
             <div className="first mt-4 w-full md:w-[400px] lg:w-[800px]">
               <label
@@ -609,15 +614,15 @@ const Signup = () => {
           </div>
 
           {/* Or Divider */}
-          <div className="or h-10 flex justify-center items-center mt-5">
+          {/* <div className="or h-10 flex justify-center items-center mt-5">
             <span className="border-2 mr-2 w-96 border-black"></span>
             <span className="text-xl font-bold mb-1">or</span>
             <span className="border-2 ml-2 w-96 border-black"></span>
-          </div>
+          </div> */}
 
           <div className="block sm:flex justify-evenly gap-2 cursor-pointer">
             {/* Social SignUp Buttons */}
-            <div className="logo flex mt-10 py-4  sm:w-96 md:w-[400px] lg:w-[400px] text-xl font-bold justify-evenly border-2 items-center border-black text-black">
+            {/* <div className="logo flex mt-10 py-4  sm:w-96 md:w-[400px] lg:w-[400px] text-xl font-bold justify-evenly border-2 items-center border-black text-black">
               <div className="img">
                 <img src={faceimg} alt="" className="h-8 sm:h-10 max-w-full" />
               </div>
@@ -633,7 +638,7 @@ const Signup = () => {
               <div className="text text-center tracking-wider">
                 Sign Up with Google
               </div>
-            </div>
+            </div> */}
           </div>
 
           {/* Already Have an Account Link */}
