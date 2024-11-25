@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { FaUserPlus } from "react-icons/fa";
 import { MdAttachEmail } from "react-icons/md";
 import { RiLockPasswordFill } from "react-icons/ri";
-import gicon from "../images/gicon.png";
+// import gicon from "../images/gicon.png";
 import axios from "axios";
 import faceimg from "../images/faceimg.png";
 import { ImCross } from "react-icons/im";
