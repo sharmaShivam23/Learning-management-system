@@ -4,7 +4,7 @@ import { MdAttachEmail } from "react-icons/md";
 import { RiLockPasswordFill } from "react-icons/ri";
 // import gicon from "../images/gicon.png";
 import axios from "axios";
-import faceimg from '../images/faceimg.png';
+import faceimg from '../Images/faceimg.png';
 import { ImCross } from "react-icons/im";
 import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
