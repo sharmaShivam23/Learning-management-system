@@ -6,7 +6,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 //import msg from "../images/msg.png"
-import botimg from '../images/botimg.png'
+import botimg from '../Images/botimg.png'
 
 const Assistant = () => {
   const [query, setQuery] = useState('');
