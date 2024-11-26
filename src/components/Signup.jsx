@@ -365,7 +365,7 @@ const Signup = () => {
                       ? "placeholder:text-black"
                       : "placeholder:text-red-700  text-red-700"
                   }`}
-                  placeholder="Enter Date of Birth"
+                  placeholder="e.g yyyy-mm-dd"
                 />
                 {dob && (
                   <button
@@ -455,7 +455,7 @@ const Signup = () => {
                   className={`text-xl text-black w-full pl-12 py-[14.3px] rounded-lg h-full bg-transparent rounded-r-none  ${
                     !passValid ? "placeholder:text-red-700  text-red-700" : ""
                   }`}
-                  placeholder="Enter Password"
+                  placeholder="Password@123"
                 />
                 {pass && (
                   <button
@@ -469,12 +469,14 @@ const Signup = () => {
             </div>
 
             {showmsg && (
-              <div className="absolute flex justify-center items-center sm:w-80 w-52 h-40 bg-white shadow-xl shadow-white">
+              <div className="absolute flex p-10 justify-center items-center sm:w-80 w-52 h-40 bg-white shadow-xl shadow-white">
                 <p
                   onClick={passManager}
                   className="sm:text-2xl text-lg font-bold text-center ml-2"
                 >
                   Suggest strong password
+                  <p className="text-black pt-2 text-lg">Password must be combination of Capital , small,num,special char</p>
+                  <p className="text-sm text-black">Password@123</p>
                 </p>
                 <div
                   onClick={cutmsg}

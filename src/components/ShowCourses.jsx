@@ -8,6 +8,8 @@ import Loading from "./Loading";
 import ed from "../Images/ed.webp";
 import { ShowCardContext } from "../CreateContext";
 import { useContext } from "react";
+import { ToastContainer } from "react-toastify";
+
 
 const News = () => {
 const { enrolledCourses, setEnrolledCourses } = useContext(ShowCardContext);
@@ -133,9 +135,9 @@ const { enrolledCourses, setEnrolledCourses } = useContext(ShowCardContext);
     }
     if (!enrolledCourses.some((enrolled) => enrolled.title === course.title)) {
       setEnrolledCourses([...enrolledCourses, course]);
-      alert(`${course.course_title} added to your profile!`);
+      toast.success(`${course.course_title} added to your profile!`);
     } else {
-      alert(`${course.course_title} is already in your profile.`);
+      toast.success(`${course.course_title} is already in your profile.`);
     }
   };
 
@@ -145,6 +147,7 @@ const { enrolledCourses, setEnrolledCourses } = useContext(ShowCardContext);
 
   return (
     <div>
+      <ToastContainer/>
       {/* Error Handling */}
       {error && (
         <p className="error text-red-600 text-center mt-4">
