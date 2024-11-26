@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import learn from "../images/learn.jpg";
-import pexell from "../images/pexell.jpg";
-import pexelll from "../images/pexelll.jpg";
-import course from "../images/course.webp"
-import boysImg from "../images/boysImg.webp"
-import ed from "../images/ed.webp"
+import learn from "../Images/learn.jpg";
+import pexell from "../Images/pexell.jpg";
+import pexelll from "../Images/pexelll.jpg";
+import course from "../Images/course.webp"
+import boysImg from "../Images/boysImg.webp"
+import ed from "../Images/ed.webp"
 import { FaHandPointRight } from "react-icons/fa";
 import { FaHandPointLeft } from "react-icons/fa";
 
