@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import card1 from "../images/card1.png";
 import card2m from "../images/card2m.png";
-import card3 from "../images/card3.png";
+import card3 from "../Images/card3.png";
 import lockerimage from "../images/lockerimage.png";
 import image1 from "../images/image1.png";
 import image2 from "../images/image2.png";

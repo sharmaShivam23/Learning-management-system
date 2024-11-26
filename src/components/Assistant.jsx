@@ -1,8 +1,8 @@
 
 import React, { useState } from 'react';
 import axios from 'axios';
-import msg from "../images/msg.png"
-import botimg from "../images/botimg.png"
+//import msg from "../images/msg.png"
+import botimg from '../Images/botimg.png'
 
 
 const Assistant = () => {
@@ -89,7 +89,7 @@ const Assistant = () => {
             placeholder="what do you want to learn."
           />
           <div>
-            <img src={msg} alt=""  className='h-10'/>
+            <img src="" alt=""  className='h-10'/>
           </div>
            <button
           type="submit"
