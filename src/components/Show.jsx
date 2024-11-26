@@ -5,6 +5,7 @@ import React from 'react';
 import { GrNext } from "react-icons/gr";
 import { MdAccessTimeFilled } from "react-icons/md";
 import newsimage from '../images/newsimage.jpeg';
+// import newsimage from '.assets/images/newsimage.jpeg';
 import { IoStar } from "react-icons/io5";
 import { useNavigate } from 'react-router-dom';
 

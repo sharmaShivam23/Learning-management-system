@@ -1,12 +1,9 @@
 
-
-
-
-
 import React, { useState } from 'react';
 import axios from 'axios';
 import msg from "../images/msg.png"
 import botimg from "../images/botimg.png"
+
 
 const Assistant = () => {
   const [query, setQuery] = useState('');

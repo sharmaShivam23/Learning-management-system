@@ -5,6 +5,7 @@ import { IoStar } from "react-icons/io5";
 import { MdAccessTimeFilled } from "react-icons/md";
 import { GrNext } from "react-icons/gr";
 import Loading from "./Loading";
+// import ed from ".assets/images/ed.webp";
 import ed from "../images/ed.webp";
 import { ShowCardContext } from "../CreateContext";
 import { useContext } from "react";

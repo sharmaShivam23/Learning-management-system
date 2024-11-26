@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import { FaUserPlus } from "react-icons/fa";
 import { MdAttachEmail } from "react-icons/md";
 import { RiLockPasswordFill } from "react-icons/ri";
-import gicon from "../images/gicon.png";
+// import gicon from "../images/gicon.png";
 import axios from "axios";
-import faceimg from "../images/faceimg.png";
+// import faceimg from "../images/faceimg.png";
 import { ImCross } from "react-icons/im";
 import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
@@ -24,24 +24,18 @@ const Signup = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [showmsg, setShowmsg] = useState(false);
   let [fullNameValid, setnameValid] = useState(true);
-  // let [userPhoto, setuserPhoto] = useState(null);
-  // let [userPhotoValid, setuserPhotoValid] = useState(true);
   let [usernameValid, setuserValid] = useState(true);
   let [dobValid, setdobValid] = useState(true);
   let [emailValid, setemailValid] = useState(true);
   let [passValid, setpassValid] = useState(true);
   let [cpassValid, setcpassValid] = useState(true);
+  
 
   async function handleSubmit(e) {
     e.preventDefault();
 
     if (clear()) {
       let item = {
-        // email,
-        // username,
-        // fullname: fullName,
-        // password: pass,
-        // userPhoto,
         fullName,
         username,
         dateOfBirth: dob,
@@ -51,7 +45,6 @@ const Signup = () => {
       };
 
       console.log(item);
-      // axios.post(" https://e-learning-slfj.onrender.com/user/signup/", item, {
       axios
         .post("https://lms-j25h.onrender.com/api/auth/register", item, {
           headers: {
@@ -60,38 +53,16 @@ const Signup = () => {
         })
         .then((res) => {
           console.log(res);
-          // localStorage.setItem("token", response.data.token);
-          alert("success");
+      
           navigate("/login");
+          toast.success("Registration SuccessFull");
         })
         .catch((error) => {
           console.log(error);
+          console.log(error.response.data.message);
+          toast.error(error.response.data.message);
           setError(error.message);
         });
-      // let formData = new FormData();
-      // formData.append("userPhoto", userPhoto);
-      // formData.append("fullName", fullName);
-      // formData.append("username", username);
-      // formData.append("dateOfBirth", dob);
-      // formData.append("email", email);
-      // formData.append("password", pass);
-      // formData.append("confirmPassword", cpass);
-
-      // axios
-      //   .post("https://lms-j25h.onrender.com/api/auth/register", formData, {
-      //     headers: {
-      //       "Content-Type": "multipart/form-data",
-      //       //  "Content-Type": "application/json"
-      //     },
-      //   })
-      //   .then((res) => {
-      //     console.log(res);
-      //     alert("success");
-      //     navigate("/login");
-      //   })
-      //   .catch((err) => {
-      //     console.error(err.response?.data || err.message);
-      //   });
     }
   }
 
@@ -104,7 +75,7 @@ const Signup = () => {
       dob == "" ||
       username == ""
     ) {
-      alert("Fill all the fields first");
+      toast.error("Fill all the fields first");
       return false;
     }
     if (dob === "") {
@@ -131,6 +102,7 @@ const Signup = () => {
       if (fullName.split("").some((char) => !isNaN(char))) {
         toast.error("Name can't be a number");
         setnameValid(false);
+        return false
       } else {
         setnameValid(true);
       }
@@ -139,6 +111,7 @@ const Signup = () => {
       if (!email.includes("@gmail.com")) {
         toast.error("Email nust ends with @gmail.com");
         setemailValid(false);
+        return false
       } else {
         setemailValid(true);
       }
@@ -147,6 +120,7 @@ const Signup = () => {
       if (!username.includes("123")) {
         toast.error("username must have with 123");
         setuserValid(false);
+        return false
       } else {
         setuserValid(true);
       }
@@ -154,18 +128,21 @@ const Signup = () => {
     if (pass) {
       if (pass.length < 6) {
         toast.error("Password must contain at least 6 characters");
-        
         setpassValid(false);
+        return false
       } else if (!containSpecial(pass)) {
         toast.error("Password must contain special characters");
         
         setpassValid(false);
+        return false
       } else if (!containsUpper(pass)) {
         toast.error("Password must contain uppercase letters");
         setpassValid(false);
+        return false
       } else if (!containsLower(pass)) {
         toast.error("Password must contain lowercase letters");
         setpassValid(false);
+        return false
       } else {
         setpassValid(true);
       }
@@ -176,6 +153,7 @@ const Signup = () => {
         toast.error("Password and Confirm password must same");
         setpassValid(false);
         setcpassValid(false);
+        return false
       } else {
         setpassValid(true);
         setcpassValid(true);
@@ -255,11 +233,7 @@ const Signup = () => {
   function cutmsg() {
     setShowmsg(false);
   }
-  // function handleImg(e) {
-  //   console.log(e.target.files[0]);
-  //   setuserPhoto(e.target.files[0]);
-  //   // setPreview(URL.createObjectURL(e.target.files[0]))
-  // }
+  
 
   return (
     <>
@@ -274,39 +248,7 @@ const Signup = () => {
         )}
 
         <div className="form px-4 md:px-8 lg:px-16 max-w-full">
-          {/* <div className="first mt-4 w-full md:w-[400px] lg:w-[800px]">
-              <label
-                htmlFor="img"
-                className="font-bold text-xl mb-4 text-red-950 ml-1"
-              >
-                Upload Photo
-              </label>
-              <div
-                className={`fullName flex rounded-lg justify-start items-center relative h-full border-2 ${
-                  emailValid ? "border-black" : "border-red-700"
-                }`}
-              >
-                <div
-                  className={`icon absolute left-3 flex items-center  ${
-                    emailValid ? "text-black" : "text-red-700"
-                  }`}
-                >
-                  <MdAttachEmail />
-                </div>
-                <input
-                  type="file"
-                  onChange={handleImg}
-                  accept="image/*"
-                  id="img"
-                  className={`text-xl text-black w-full pl-12 py-[14.3px] rounded-lg h-full bg-transparent rounded-r-none  ${
-                    emailValid
-                      ? "placeholder:text-black"
-                      : "placeholder:text-red-700  text-red-700"
-                  }`}
-                 
-                />
-              </div>
-            </div> */}
+
 
           <div className="inputs text-xl md:text-2xl lg:text-3xl flex justify-center items-center flex-col">
             {/* Full Name Input */}

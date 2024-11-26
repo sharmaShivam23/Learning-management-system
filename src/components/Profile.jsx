@@ -224,6 +224,8 @@ import { GrNext } from "react-icons/gr";
 import { MdAccessTimeFilled } from "react-icons/md";
 import { IoStar } from "react-icons/io5";
 import Footer from './Footer';
+// import newsimage from '.assets/images/newsimage.jpeg';
+// import card1 from '.assets/images/card1.png';
 import newsimage from '../images/newsimage.jpeg';
 import card1 from '../images/card1.png';
 import { Link } from 'react-router-dom';
