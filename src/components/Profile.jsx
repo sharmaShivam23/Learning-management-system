@@ -224,8 +224,8 @@ import { GrNext } from "react-icons/gr";
 import { MdAccessTimeFilled } from "react-icons/md";
 import { IoStar } from "react-icons/io5";
 import Footer from './Footer';
-import newsimage from '../images/newsimage.jpeg';
-import card1 from '../images/card1.png';
+import newsimage from '../Images/newsimage.jpeg';
+import card1 from '../Images/card1.png';
 import { Link } from 'react-router-dom';
 import { useContext } from 'react';
 import { ShowCardContext } from "../CreateContext";
@@ -347,7 +347,7 @@ export default function Profile({ setUsername }) {
       <div className="mx-auto text-center font-bold mt-8 flex justify-center items-center flex-col">
         <h1 className="text-3xl text-red-950 mb-4">A lifelong learner on a journey to create and inspire</h1>
         <div className="pht bg-orange-500 h-80 w-80 rounded-full mt-5 object-cover overflow-hidden flex justify-center items-center">
-          <img src="" className="object-cover h-80" alt="" />
+          <img src={card1} className="object-cover h-80" alt="" />
         </div>
         <div className="name flex justify-evenly items-center flex-col">
           <div className="user flex justify-between gap-20 items-center mt-5">

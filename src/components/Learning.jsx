@@ -1,10 +1,10 @@
 import React from "react";
-import notes2 from "../images/notes2.png";
-import graph from "../images/graph.png";
-import user from "../images/user.png";
-import certi from "../images/certi.png";
-import clockImg from "../images/clockImg.png";
-import callImg from "../images/callImg.png";
+import notes2 from "../Images/notes2.png";
+import graph from "../Images/graph.png";
+import user from "../Images/user.png";
+import certi from "../Images/certi.png";
+import clockImg from "../Images/clockImg.png";
+import callImg from "../Images/callImg.png";
 import {  useNavigate } from "react-router-dom";
 
 const Learning = () => {

@@ -8,7 +8,7 @@ import { FaEnvelopeOpenText } from "react-icons/fa6";
 import { IoIosContacts } from "react-icons/io";
 import { FaHandPointRight } from "react-icons/fa";
 
-import logimg from '../images/logimg.png';
+import logimg from '../Images/logimg.png';
 
 
 

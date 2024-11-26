@@ -1,6 +1,6 @@
 
 import { useState, useCallback, useEffect } from "react";
-import img from '../images/img.png'
+import img from '../Images/img.png'
 import { useNavigate } from "react-router-dom";
 
 function Password() {

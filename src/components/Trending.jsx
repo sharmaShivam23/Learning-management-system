@@ -1,11 +1,11 @@
 import React, { useState } from "react";
-import card1 from "../images/card1.png";
-import card2m from "../images/card2m.png";
+import card1 from "../Images/card1.png";
+import card2m from "../Images/card2m.png";
 import card3 from "../Images/card3.png";
-import lockerimage from "../images/lockerimage.png";
-import image1 from "../images/image1.png";
-import image2 from "../images/image2.png";
-import bulbimg from "../images/bulbimg.png";
+import lockerimage from "../Images/lockerimage.png";
+import image1 from "../Images/image1.png";
+import image2 from "../Images/image2.png";
+import bulbimg from "../Images/bulbimg.png";
 import { IoStar } from "react-icons/io5";
 import { IoMdPerson } from "react-icons/io";
 import { IoPeopleSharp } from "react-icons/io5";
