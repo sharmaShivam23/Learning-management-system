@@ -176,7 +176,7 @@ const Navbar = ({ username }) => {
               </button>
             </li>
             <li>
-              <button className="bg-orange-900 text-white px-4 py-2 rounded mt-10">
+              <button onClick={logOut}  className="bg-orange-900 text-white px-4 py-2 rounded mt-10">
                 <Link to="/logOut">logOut</Link>
               </button>
             </li>
