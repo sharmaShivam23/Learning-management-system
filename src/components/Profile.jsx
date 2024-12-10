@@ -1,8 +1,4 @@
 
-
-
-
-
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
@@ -331,7 +327,8 @@ export default function Profile({ setUsername }) {
             </div>
           ))
         ) : (
-          <p className="text-2xl text-black">No Enrolled Courses</p>
+          // <p className="text-2xl text-black">No Enrolled Courses</p>
+          <p></p>
         )}
         {obj.map((item, index) => (
           <div

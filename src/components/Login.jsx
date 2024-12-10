@@ -66,7 +66,7 @@ const Login = () => {
   return (
     <>
       <h1 className='text-4xl text-center font-bold  bg-red-950 py-5 text-white mt-10'>Login</h1>
-      <button onClick={(e => logout())}>Logout</button>
+      {/* <button onClick={(e => logout())}>Logout</button> */}
       <form onSubmit={handleSubmit} className='flex justify-center items-center flex-col'>
         <div className="inputs text-xl md:text-2xl lg:text-3xl flex justify-center items-center flex-col">
 
@@ -149,11 +149,11 @@ const Login = () => {
 
           {/* <div className="last border-2 w-[800px] border-black mt-8 "></div> */}
 
-<div className="mt-5 tracking-wide flex justify-center items-center">
+<div className="mt-5  flex justify-center items-center text-center">
   I accept Learnify's
-  <span className="font-bold underline mx-1">Terms of Use</span>
+  <span className="font-bold underline ml-2 mr-2">Terms of Use</span>
   and
-  <span className="font-bold underline mx-1">Privacy Notice</span>
+  <span className="font-bold underline ml-2 mr-2">Privacy Notice</span>
 </div>
 
 

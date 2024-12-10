@@ -537,7 +537,7 @@ const Signup = () => {
           <div className="text-center mt-2 text-2xl text-black font-bold flex justify-center items-center gap-2 ">
             <input
               type="checkbox"
-              className="text-2xl"
+              className="transform scale-150 mr-2"
               id="check"
               onChange={handleToggle}
             />
@@ -550,7 +550,7 @@ const Signup = () => {
         {/* Sign Up Button */}
         <div className="secondpart text-center mt-10 flex justify-center items-center flex-col">
           <div className="btn">
-            <button className="text-red-950 py-4 bg-transparent border-2  w-full sm:w-96 lg:w-[400px] text-xl md:text-2xl border-red-950 font-bold hover:bg-gradient-to-br from-yellow-500 to-orange-600 hover:text-white transition duration-300 ease-in-out transform hover:scale-105 hover:border-2 hover:border-black">
+            <button className="text-red-950 py-4 px-5  bg-transparent border-2  w-full sm:w-96 lg:w-[400px] text-xl md:text-2xl border-red-950 font-bold hover:bg-gradient-to-br from-yellow-500 to-orange-600 hover:text-white transition duration-300 ease-in-out transform hover:scale-105 hover:border-2 hover:border-black">
               Sign Up
             </button>
           </div>
@@ -601,9 +601,9 @@ const Signup = () => {
 
           <div className="mt-5 tracking-wide">
             I accept Learnify's
-            <span className="font-bold underline mx-1">Terms of Use</span>
+            <span className="font-bold underline mx-1 ml-3 mr-2">Terms of Use</span>
             and
-            <span className="font-bold underline mx-1">Privacy Notice</span>
+            <span className="font-bold underline mx-1 ml-3 mr-2">Privacy Notice</span>
           </div>
         </div>
       </form>
