@@ -103,7 +103,7 @@ function App() {
           <Router>
             <Navbar username={username} />
             <Routes>
-              <Route path="/Main" element={<Main />} />
+              <Route path="/" element={<Main />} />
               <Route path="/Signup" element={<Signup />} />
               <Route path="/Login" element={<Login />} />
               <Route path="/profile" element={<Profile setUsername={setUsername} />} />
