@@ -21,6 +21,12 @@ input{
 input::placeholder{
   color : black
 }
+
+.photos{
+  /* height: 100px;
+  background-color: red; */
+  /* transform: translate3d(0% , -50px , 100px); */
+}
 /* :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;

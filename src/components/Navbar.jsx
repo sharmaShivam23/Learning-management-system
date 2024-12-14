@@ -3,6 +3,8 @@ import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { GiCrossedAxes } from "react-icons/gi";
 import logimg from "../Images/logimg.png";
+import le1 from "../Images/le1.png";
+import le2 from "../Images/le2.png";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -81,7 +83,7 @@ const Navbar = ({ username }) => {
 
           <ul className="hidden md:flex gap-8 text-lg font-bold">
             {/* <li className='hover:underline transition-all ease-in-out delay-0 duration-1000'><Link to="/Main">Home</Link></li> */}
-            <li className="relative group"><Link to="/Main" className="transition-all ease-in-out duration-300 text-black" >
+            <li className="relative group"><Link to="/" className="transition-all ease-in-out duration-300 text-black " >
                 Home
               </Link>
               <span className="absolute left-0 bottom-0 w-0 h-[4px] bg-black transition-all ease-in-out duration-500 group-hover:w-full"></span>
@@ -150,7 +152,7 @@ const Navbar = ({ username }) => {
                 learnify
               </div>
             </li>
-            <li className="relative group mt-10"><Link to="/Main" className="transition-all ease-in-out duration-300 text-black" >
+            <li className="relative group mt-10"><Link to="/" className="transition-all ease-in-out duration-300 text-black" >
                 Home
               </Link>
               <span className="absolute left-0 bottom-0 w-0 h-[4px] bg-black transition-all ease-in-out duration-500 group-hover:w-full"></span>
