@@ -15,7 +15,6 @@ import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 
 const Trending = () => {
-  const transition = { duration: 5 };
   const [rating, setRating] = useState(null);
   let Navigate = useNavigate();
   let obj = [
@@ -148,7 +147,7 @@ const Trending = () => {
             className="cards text-center relative cursor-pointer"
           >
             <div
-              className={`cards text-center relative -z-10 ${item}  cursor-pointer`}
+              className={`cards text-center relative -z-10 ${item}   cursor-pointer`}
             >
               <img
                 src={item.img}
@@ -245,7 +244,7 @@ const Trending = () => {
             initial={{ opacity: 0, scale: 0 }}
             whileInView={{ opacity: 100, scale: 1 }}
             transition={{ duration: 2, type: "spring", stiffness: 50 }}
-            viewport={{ once: true }}
+            // viewport={{ once: true }}
           >
             <h1 className="text-3xl font-bold">
               Achieve your goals faster with personalized plans and programs
