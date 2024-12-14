@@ -125,7 +125,7 @@ const Trending = () => {
     slideOut: {
       initial: { opacity: 0, x: 400 },
       animate: { opacity: 1, x: 0 },
-      transition: { type: "spring", stiffness: 50, duration: 15 },
+      transition: { type: "spring", stiffness: 50, duration: 55 },
     },
     zoomUp: {
       initial: { opacity: 0, scale: 0 },
@@ -279,11 +279,11 @@ const Trending = () => {
                 <div className="month text-xl font-bold mt-2">{card.p2}</div>
                 <div className="p mt-2">{card.p3}</div>
 
-                <div className="btn flex justify-center items-center mt-5">
-                  <motion.div
-                    initial={ {scale: 0.3 }}
+                <div className="btn flex justify-center  items-center mt-5">
+                  <motion.button
+                    initial={ {scale: 0.9  }}
                     whileInView={{  scale: 1 }}
-                    transition={{ duration: 2, type: "ease-out", stiffness: 50 }}
+                    transition={{ duration: 1, type: "ease-out", stiffness: 50 }}
                     // viewport={{ once: true }}
                   >
                     <button
@@ -292,7 +292,7 @@ const Trending = () => {
                     >
                       Start Subscription
                     </button>
-                  </motion.div>
+                  </motion.button>
                 </div>
 
                 <div className="content mt-6 pb-14">
@@ -371,6 +371,11 @@ const Trending = () => {
 
       {/* fifth page */}
       <div className="fifth mt-20 bg-red-950 h-auto w-full pb-10 px-16 text-center text-lg text-amber-500 flex  items-center flex-col">
+        <motion.div
+         initial = {{translateX : "-800px"}}
+         whileInView = {{translateX : "0px"}}
+         transition={{duration : 1}}
+        >
         <h1 className="text-white text-4xl mt-4 font-bold">Learnify Plus</h1>
         <div className="text mt-9">
           <p className="hidden lg:block">
@@ -387,7 +392,7 @@ const Trending = () => {
           <p className="mt-2 block lg:hidden">Get more Information about .</p>
         </div>
 
-        <div className="btn mt-8">
+        <div className="btn mt-8 flex justify-center items-center">
           <button
             onClick={subscribe}
             className="flex justify-center items-center bg-amber-600 h-16 w-60 sm:w-80 text-red-950 font-bold text-lg 
@@ -409,6 +414,7 @@ const Trending = () => {
             </span>
           </p>
         </div>
+        </motion.div>
       </div>
     </div>
   );
