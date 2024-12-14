@@ -125,12 +125,12 @@ const Trending = () => {
     slideOut: {
       initial: { opacity: 0, x: 400 },
       animate: { opacity: 1, x: 0 },
-      transition: { type: "spring", stiffness: 50, duration: 55 },
+      transition: { type: "spring", stiffness: 50, duration: 15 },
     },
     zoomUp: {
       initial: { opacity: 0, scale: 0 },
       animate: { opacity: 1, scale: 1 },
-      transition: { type: "spring", stiffness: 50, duration: 15 },
+      transition: { type: "spring", duration: 4 },
     },
   };
 
@@ -281,9 +281,13 @@ const Trending = () => {
 
                 <div className="btn flex justify-center  items-center mt-5">
                   <motion.button
-                    initial={ {scale: 0.9  }}
-                    whileInView={{  scale: 1 }}
-                    transition={{ duration: 1, type: "ease-out", stiffness: 50 }}
+                    initial={{ scale: 0.9 }}
+                    whileInView={{ scale: 1 }}
+                    transition={{
+                      duration: 1,
+                      type: "ease-out",
+                      stiffness: 50,
+                    }}
                     // viewport={{ once: true }}
                   >
                     <button
@@ -297,7 +301,25 @@ const Trending = () => {
 
                 <div className="content mt-6 pb-14">
                   <div className="first flex mt-2">
+                    {/* <motion.div initial = {{top : "4"}} whileInView={{top : "0"}} transition={{duration : 1}}>
                     <div className="icont mt-1 text-[#32CD32]">
+                      <FaCheckCircle />
+                    </div>
+                    </motion.div> */}
+                      <div className="icont mt-1 text-[#32CD32] animate-bounce">
+                        <FaCheckCircle />
+                      </div>
+                    
+
+                    <div className="text hidden sm:block">
+                      Get more Information about consectetur.{" "}
+                    </div>
+                    <div className="text block sm:hidden">
+                      Get more Information about .{" "}
+                    </div>
+                  </div>
+                  <div className="first flex mt-2">
+                    <div className="icont mt-1 text-[#32CD32] animate-bounce">
                       <FaCheckCircle />
                     </div>
                     <div className="text hidden sm:block">
@@ -308,7 +330,7 @@ const Trending = () => {
                     </div>
                   </div>
                   <div className="first flex mt-2">
-                    <div className="icont mt-1 text-[#32CD32]">
+                    <div className="icont mt-1 text-[#32CD32] animate-bounce">
                       <FaCheckCircle />
                     </div>
                     <div className="text hidden sm:block">
@@ -319,7 +341,7 @@ const Trending = () => {
                     </div>
                   </div>
                   <div className="first flex mt-2">
-                    <div className="icont mt-1 text-[#32CD32]">
+                    <div className="icont mt-1 text-[#32CD32] animate-bounce">
                       <FaCheckCircle />
                     </div>
                     <div className="text hidden sm:block">
@@ -330,7 +352,7 @@ const Trending = () => {
                     </div>
                   </div>
                   <div className="first flex mt-2">
-                    <div className="icont mt-1 text-[#32CD32]">
+                    <div className="icont mt-1 text-[#32CD32] animate-bounce">
                       <FaCheckCircle />
                     </div>
                     <div className="text hidden sm:block">
@@ -341,18 +363,7 @@ const Trending = () => {
                     </div>
                   </div>
                   <div className="first flex mt-2">
-                    <div className="icont mt-1 text-[#32CD32]">
-                      <FaCheckCircle />
-                    </div>
-                    <div className="text hidden sm:block">
-                      Get more Information about consectetur.{" "}
-                    </div>
-                    <div className="text block sm:hidden">
-                      Get more Information about .{" "}
-                    </div>
-                  </div>
-                  <div className="first flex mt-2">
-                    <div className="icont mt-1 text-[#32CD32]">
+                    <div className="icont mt-1 text-[#32CD32] animate-bounce">
                       <FaCheckCircle />
                     </div>
                     <div className="text hidden sm:block">
@@ -372,48 +383,48 @@ const Trending = () => {
       {/* fifth page */}
       <div className="fifth mt-20 bg-red-950 h-auto w-full pb-10 px-16 text-center text-lg text-amber-500 flex  items-center flex-col">
         <motion.div
-         initial = {{translateX : "-800px"}}
-         whileInView = {{translateX : "0px"}}
-         transition={{duration : 1}}
+          initial={{ translateX: "-800px" , scale : 0 }}
+          whileInView={{ translateX: "0px" , scale : 1 }}
+          transition={{ duration: 1 }}
         >
-        <h1 className="text-white text-4xl mt-4 font-bold">Learnify Plus</h1>
-        <div className="text mt-9">
-          <p className="hidden lg:block">
-            Get more Information about consectetur adipisicing elit. Sit aliquid
-            saepe asperiores dignissimos itaque consequatur beatae! Incidunt
-            distentiu!
-          </p>
-          <p className="block lg:hidden">
-            Get more Information about consectetur adipisicing elit. Sit aliq
-          </p>
-          <p className="mt-2 hidden lg:block">
-            Get more Information about consectetur adipisicing elit.
-          </p>
-          <p className="mt-2 block lg:hidden">Get more Information about .</p>
-        </div>
+          <h1 className="text-white text-4xl mt-4 font-bold">Learnify Plus</h1>
+          <div className="text mt-9">
+            <p className="hidden lg:block">
+              Get more Information about consectetur adipisicing elit. Sit
+              aliquid saepe asperiores dignissimos itaque consequatur beatae!
+              Incidunt distentiu!
+            </p>
+            <p className="block lg:hidden">
+              Get more Information about consectetur adipisicing elit. Sit aliq
+            </p>
+            <p className="mt-2 hidden lg:block">
+              Get more Information about consectetur adipisicing elit.
+            </p>
+            <p className="mt-2 block lg:hidden">Get more Information about .</p>
+          </div>
 
-        <div className="btn mt-8 flex justify-center items-center">
-          <button
-            onClick={subscribe}
-            className="flex justify-center items-center bg-amber-600 h-16 w-60 sm:w-80 text-red-950 font-bold text-lg 
+          <div className="btn mt-8 flex justify-center items-center">
+            <button
+              onClick={subscribe}
+              className="flex justify-center items-center bg-amber-600 h-16 w-60 sm:w-80 text-red-950 font-bold text-lg 
                relative overflow-hidden group"
-          >
-            <span className="absolute inset-0 bg-red-950 translate-x-full group-hover:translate-x-0 transition-transform duration-1000 ease-in-out"></span>
-            <span className="absolute inset-0 bg-amber-600 translate-x-0 group-hover:-translate-x-full transition-transform duration-1000 ease-in-out"></span>
-            <span className="relative z-10 group-hover:text-white text-red-950">
-              Start 7-day Free Trial
-            </span>
-          </button>
-        </div>
+            >
+              <span className="absolute inset-0 bg-red-950 translate-x-full group-hover:translate-x-0 transition-transform duration-1000 ease-in-out"></span>
+              <span className="absolute inset-0 bg-amber-600 translate-x-0 group-hover:-translate-x-full transition-transform duration-1000 ease-in-out"></span>
+              <span className="relative z-10 group-hover:text-white text-red-950">
+                Start 7-day Free Trial
+              </span>
+            </button>
+          </div>
 
-        <div className="text mt-4">
-          <p>
-            <span className="text-amber-600">or</span>{" "}
-            <span className="font-bolder">
-              $33,528/year with 14-day money-back guarantee
-            </span>
-          </p>
-        </div>
+          <div className="text mt-4">
+            <p>
+              <span className="text-amber-600">or</span>{" "}
+              <span className="font-bolder">
+                $33,528/year with 14-day money-back guarantee
+              </span>
+            </p>
+          </div>
         </motion.div>
       </div>
     </div>
