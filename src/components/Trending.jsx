@@ -117,14 +117,14 @@ const Trending = () => {
 
   const animationVariants = {
     slideIn: {
-      initial: { opacity: 0, x: -400 },
+      initial: { opacity: 0, x: -100 },
       animate: { opacity: 1, x: 0 },
-      transition: { type: "spring", stiffness: 50, duration: 15 },
+      transition: { type: "spring", stiffness: 50, duration: 2 },
     },
     slideOut: {
-      initial: { opacity: 0, x: 400 },
+      initial: { opacity: 0, x: 100 },
       animate: { opacity: 1, x: 0 },
-      transition: { type: "spring", stiffness: 50, duration: 15 },
+      transition: { type: "spring", stiffness: 50, duration: 2 },
     },
     zoomUp: {
       initial: { opacity: 0, scale: 0 },
