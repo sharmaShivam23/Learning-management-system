@@ -382,7 +382,7 @@ const Trending = () => {
       {/* fifth page */}
       <div className="fifth mt-20 bg-red-950 h-auto w-full pb-10 px-16 text-center text-lg text-amber-500 flex  items-center flex-col">
         <motion.div
-          initial={{ translateX: "-800px" , scale : 0 }}
+          initial={{ translateX: "-100px" , scale : 0 }}
           whileInView={{ translateX: "0px" , scale : 1 }}
           transition={{ duration: 1 }}
         >
