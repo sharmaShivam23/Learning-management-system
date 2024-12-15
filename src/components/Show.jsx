@@ -8,6 +8,7 @@ import newsimage from '../Images/newsimage.jpeg';
 // import newsimage from '.assets/images/newsimage.jpeg';
 import { IoStar } from "react-icons/io5";
 import { useNavigate } from 'react-router-dom';
+import { motion } from "framer-motion";
 
 const Show = () => {
   let Navigate = useNavigate()
@@ -81,8 +82,9 @@ const Show = () => {
 
   return (
     <>
-
+     <motion.h1 initial={{opacity : '0' , x : '50'}} whileInView={{opacity : '1' , x : '0'}}  transition= { {type: "spring", duration: 4} }>
     <h1 className='text-4xl font-bold text-center -z-10 mt-16 mb-10'>Explore all new and trending courses</h1>
+    </motion.h1>
     <div className="main mt-10 flex flex-wrap sm:flex-nowrap gap-6">
 
       {/* Left Section */}

@@ -14,11 +14,13 @@ const Navbar = ({ username }) => {
   
   const token = localStorage.getItem("token");
   const [menu, setMenu] = useState(false);
+  const [click, setclick] = useState(false);
   const [scrollWidth, setScrollWidth] = useState(0);
   const navigate = useNavigate();
 
   const handleMenuToggle = () => {
     setMenu(!menu);
+    setclick(true)
   };
 
   const handleScroll = () => {
@@ -67,14 +69,14 @@ const Navbar = ({ username }) => {
             {!menu ? (
               <button
                 onClick={handleMenuToggle}
-                className="text-4xl font-bold text-black"
+                className={`text-4xl font-bold ${click ? 'transition-all  duration-3000 ease-in-out delay-0' : ''} text-black`}
               >
                 &#8801;
               </button>
             ) : (
               <button
                 onClick={handleMenuToggle}
-                className="text-4xl font-bold text-black"
+                className="text-4xl font-bold text-black transition-all  duration-3000 ease-in-out delay-0"
               >
                 <GiCrossedAxes />
               </button>
@@ -144,7 +146,7 @@ const Navbar = ({ username }) => {
       </nav>
 
       {menu && (
-        <div className="list2 fixed z-50 bg-amber-500 h-screen w-7/12 top-0 left-0">
+        <div className="list2 fixed z-50 bg-amber-500 h-screen w-7/12 top-0 left-0 animate-slideIn">
           <ul className="flex flex-col justify-evenly items-center text-xl font-bold mt-10">
             <li>
               <img src={logimg} alt="Learnify Logo" className="h-16" />

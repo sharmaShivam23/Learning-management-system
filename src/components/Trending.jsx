@@ -187,9 +187,16 @@ const Trending = () => {
       {/* third page */}
 
       <div className="third ">
+      <motion.div
+            initial={{ opacity: 0 , filter : 'blur(10px)'}}
+            whileInView={{ opacity: 1 ,  filter : 'blur(0px)' }}
+            transition={{ duration: 2 }}
+            // viewport={{ once: true }}
+          >
         <h1 className="text-center text-3xl font-bold mt-16">
           Invest in your career with Learnify
         </h1>
+       
         <div className="text-center mt-6">
           <p>
             LGet more Information about consectetur adipisicing elit. Voluptate,
@@ -197,7 +204,7 @@ const Trending = () => {
           </p>
           <p>Get more Information about consectetur.</p>
         </div>
-
+        </motion.div>
         <div className="cards flex justify-evenly items-center mt-10 flex-wrap">
           {obj2.map((content, index) => (
             <motion.div
@@ -216,6 +223,7 @@ const Trending = () => {
                 rotateY: 0,
               }}
               transition={{ duration: 2 }}
+              // viewport={{once : true}}
             >
               <div
                 className={`card h-auto w-80 ${index} flex flex-col hover:shadow-xl hover:shadow-orange-300 justify-center items-center text-center p-4  hover:scale-110 transition-all ease-in-out delay-0 duration-100`}
@@ -382,8 +390,8 @@ const Trending = () => {
       {/* fifth page */}
       <div className="fifth mt-20 bg-red-950 h-auto w-full pb-10 px-16 text-center text-lg text-amber-500 flex  items-center flex-col">
         <motion.div
-          initial={{ translateX: "-100px" , scale : 0 }}
-          whileInView={{ translateX: "0px" , scale : 1 }}
+          initial={{ translateX: "-100px"  }}
+          whileInView={{ translateX: "0px" }}
           transition={{ duration: 1 }}
         >
           <h1 className="text-white text-4xl mt-4 font-bold">Learnify Plus</h1>
