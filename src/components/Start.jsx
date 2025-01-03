@@ -14,7 +14,6 @@ const Start = () => {
           scale: 0,
           opacity: 0,
           filter: "blur(10)",
-          backgroundColor: "white",
           rotateY: 180,
           y : 200
         }}
@@ -22,7 +21,6 @@ const Start = () => {
           scale: 1,
           opacity: 1,
           filter: "blur(0)",
-          backgroundColor: "transparent",
           rotateY: 0,
           y : 0
         }}

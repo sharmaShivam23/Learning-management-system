@@ -8,6 +8,7 @@ import {  useNavigate } from 'react-router-dom';
 import { useAuth0 } from '@auth0/auth0-react';
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Loading2 from './Loading2';
 
 
 
@@ -22,12 +23,14 @@ const Login = () => {
   let [email ,setemail] = useState("")
   let [error , setError] = useState("")
   let [passvalid , setPassValid] = useState(false)
+  const [loading , setLoading] = useState(false)
   
 
   // };
 
   async function handleSubmit(e) {
     e.preventDefault();
+    setLoading(true)
     try {
         const items = { email, password };
         const response = await axios.post(
@@ -56,6 +59,9 @@ const Login = () => {
             console.error("Error:", error.message);
             setError(error)
         }
+    }
+    finally{
+      setLoading(false)
     }
     
   
@@ -127,9 +133,11 @@ const Login = () => {
 
         </div>
         <div className='flex justify-center items-center mt-7'>
+          {loading ? <Loading2/> : (
         <button className='text-red-950 py-4 bg-orange-500 w-full sm:w-96 lg:w-[400px] text-xl text-center md:text-2xl font-bold max-[700px]:w-[200px]'>
               Log in
             </button>
+            )}
             </div>
         {/* <div className='flex justify-center items-center mt-7'>
         <button className='text-red-950 py-4 bg-orange-500 w-full sm:w-96 lg:w-[400px] text-xl text-center md:text-2xl font-bold'>

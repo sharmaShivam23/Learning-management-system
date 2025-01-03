@@ -18,8 +18,8 @@ export default {
           '100%' : { transform : 'translateX(0%)'  },
         },
         slideOut : {
-          '0%' : { transform : 'translateX(400%)', opacity : '0' },
-          '100%' : { transform : 'translateX(0%)' , opacity : '1' },
+          '0%' : { transform : 'translateX(0%)', opacity : '1' },
+          '100%' : { transform : 'translateX(-100%)' , opacity : '0' },
         },
         slideo : {
           '0%' : { transform : 'translateX(-400%)  rotate(100deg)', opacity : '0'  },

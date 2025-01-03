@@ -7,10 +7,11 @@ import { ImCross } from "react-icons/im";
 import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Loading2 from "./Loading2";
 
 const Signup = () => {
   let navigate = useNavigate();
-
+  const [loading , setLoading] = useState(false)
   let [fullName, setname] = useState("");
   let [username, setuser] = useState("");
   let [dob, setdob] = useState("");
@@ -31,8 +32,8 @@ const Signup = () => {
 
   async function handleSubmit(e) {
     e.preventDefault();
-
     if (clear()) {
+      setLoading(true)
       let item = {
         fullName,
         username,
@@ -51,15 +52,18 @@ const Signup = () => {
         })
         .then((res) => {
           console.log(res);
-      
+          toast.success(res.data.message);
+          if(res.status === 201){
           navigate("/login");
-          toast.success("Registration SuccessFull");
+          }
+          setLoading(false)
         })
         .catch((error) => {
           console.log(error);
           console.log(error.response.data.message);
           toast.error(error.response.data.message);
           setError(error.message);
+          setLoading(false)
         });
     }
   }
@@ -76,16 +80,19 @@ const Signup = () => {
       toast.error("Fill all the fields first");
       return false;
     }
-    if (dob === "") {
-      setdobValid(false);
-    } else {
-      setdobValid(true);
-    }
     if (fullName == "") {
       setnameValid(false);
     }
     if (username == "") {
       setuserValid(false);
+    }
+    if (dob === "") {
+      setdobValid(false);
+    } else {
+      setdobValid(true);
+    }
+    if (email == "") {
+      setemailValid(false);
     }
     if (pass == "") {
       setpassValid(false);
@@ -93,25 +100,13 @@ const Signup = () => {
     if (cpass == "") {
       setcpassValid(false);
     }
-    if (email == "") {
-      setemailValid(false);
-    }
     if (fullName) {
       if (fullName.split("").some((char) => !isNaN(char))) {
-        toast.error("Name can't be a number");
+        toast.error("Name can't take space and numbers");
         setnameValid(false);
         return false
       } else {
         setnameValid(true);
-      }
-    }
-    if (email) {
-      if (!email.includes("@gmail.com")) {
-        toast.error("Email nust ends with @gmail.com");
-        setemailValid(false);
-        return false
-      } else {
-        setemailValid(true);
       }
     }
     if (username) {
@@ -123,6 +118,16 @@ const Signup = () => {
         setuserValid(true);
       }
     }
+    if (email) {
+      if (!email.includes("@gmail.com")) {
+        toast.error("Email must ends with @gmail.com");
+        setemailValid(false);
+        return false
+      } else {
+        setemailValid(true);
+      }
+    }
+
     if (pass) {
       if (pass.length < 6) {
         toast.error("Password must contain at least 6 characters");
@@ -197,20 +202,29 @@ const Signup = () => {
     navigate("/login");
   };
 
-  const clearFieldname = () => {
-    if (fullName) {
-      setname("");
-    } else if (username) {
-      setuser("");
-    } else if (email) {
-      setemail("");
-    } else if (pass) {
-      setpass("");
-    } else if (cpass) {
-      setcpass("");
-    } else if (dob) {
-      setdob("");
-    }
+  // const clearFieldname = () => {
+  //   if (fullName) {
+  //     setname("");
+  //   } else if (username) {
+  //     setuser("");
+  //   } 
+  //   else if (dob) {
+  //     setdob("");
+  //   }else if (email) {
+  //     setemail("");
+  //   } else if (pass) {
+  //     setpass("");
+  //   } else if (cpass) {
+  //     setcpass("");
+  //   }
+  // };
+  const clearField = (fieldName) => {
+    if (fieldName === 'fullName') setname('');
+    else if (fieldName === 'username') setuser('');
+    else if (fieldName === 'email') setemail('');
+    else if (fieldName === 'dob') setdob('');
+    else if (fieldName === 'pass') setpass('');
+    else if (fieldName === 'cpass') setcpass('');
   };
 
   function msg() {
@@ -282,12 +296,12 @@ const Signup = () => {
                   placeholder="Enter fullName"
                 />
                 {fullName && (
-                  <button
-                    onClick={clearFieldname}
-                    className="sm:text-xl  text-lg font-bold bg-red-950 h-full py-[13.4px] rounded-l-none sm:w-32 w-24 text-white rounded-md"
+                  <span
+                  onClick={() => clearField('fullName')} 
+                    className="sm:text-xl cursor-pointer  text-lg text-center font-bold bg-red-950 h-full py-[13.4px] rounded-l-none sm:w-32 w-24 text-white rounded-md"
                   >
                     Clear
-                  </button>
+                  </span>
                 )}
               </div>
             </div>
@@ -325,12 +339,12 @@ const Signup = () => {
                   placeholder="Enter Username"
                 />
                 {username && (
-                  <button
-                    onClick={clearFieldname}
-                    className="sm:text-xl  text-lg font-bold bg-red-950 h-full py-[13.8px]  rounded-l-none sm:w-32 w-24 text-white rounded-md"
+                  <span
+                  onClick={() => clearField('username')}
+                    className="sm:text-xl text-center cursor-pointer text-lg font-bold bg-red-950 h-full py-[13.8px]  rounded-l-none sm:w-32 w-24 text-white rounded-md"
                   >
                     Clear
-                  </button>
+                  </span>
                 )}
               </div>
             </div>
@@ -368,12 +382,12 @@ const Signup = () => {
                   placeholder="e.g yyyy-mm-dd"
                 />
                 {dob && (
-                  <button
-                    onClick={clearFieldname}
-                    className="sm:text-xl rounded-l-none text-lg font-bold bg-red-950 h-full py-[15.4px]  sm:w-32 w-24 text-white rounded-md"
+                  <sspan
+                  onClick={() => clearField('dob')}
+                    className="sm:text-xl text-center cursor-pointer rounded-l-none text-lg font-bold bg-red-950 h-full py-[15.4px]  sm:w-32 w-24 text-white rounded-md"
                   >
                     Clear
-                  </button>
+                  </sspan>
                 )}
               </div>
             </div>
@@ -411,12 +425,12 @@ const Signup = () => {
                   placeholder="Enter Email Address"
                 />
                 {email && (
-                  <button
-                    onClick={clearFieldname}
-                    className="sm:text-xl rounded-l-none text-lg font-bold bg-red-950 h-full py-[13.8px]  sm:w-32 w-24 text-white rounded-md"
+                  <span
+                  onClick={() => clearField('email')}
+                    className="sm:text-xl text-center cursor-pointer rounded-l-none text-lg font-bold bg-red-950 h-full py-[13.8px]  sm:w-32 w-24 text-white rounded-md"
                   >
                     Clear
-                  </button>
+                  </span>
                 )}
               </div>
             </div>
@@ -458,12 +472,12 @@ const Signup = () => {
                   placeholder="Password@123"
                 />
                 {pass && (
-                  <button
-                    onClick={clearFieldname}
-                    className="sm:text-xl rounded-l-none text-lg font-bold bg-red-950 h-full py-[13.4px] sm:w-32 w-24 text-white rounded-md"
+                  <span
+                  onClick={() => clearField('pass')}
+                    className="sm:text-xl text-center cursor-pointer rounded-l-none text-lg font-bold bg-red-950 h-full py-[13.4px] sm:w-32 w-24 text-white rounded-md"
                   >
                     Clear
-                  </button>
+                  </span>
                 )}
               </div>
             </div>
@@ -520,12 +534,12 @@ const Signup = () => {
                   placeholder="Confirm Password"
                 />
                 {cpass && (
-                  <button
-                    onClick={clearFieldname}
-                    className="sm:text-xl  text-lg font-bold bg-red-950 h-full py-[13.4px] rounded-l-none sm:w-32 w-24 text-white rounded-md"
+                  <span
+                  onClick={() => clearField('cpass')}
+                    className="sm:text-xl text-center cursor-pointer  text-lg font-bold bg-red-950 h-full py-[13.4px] rounded-l-none sm:w-32 w-24 text-white rounded-md"
                   >
                     Clear
-                  </button>
+                  </span>
                 )}
               </div>
             </div>
@@ -549,11 +563,13 @@ const Signup = () => {
 
         {/* Sign Up Button */}
         <div className="secondpart text-center mt-10 flex justify-center items-center flex-col">
+        {loading ? <Loading2/> : (
           <div className="btn">
             <button className="text-red-950 py-4 px-5  bg-transparent border-2  w-full sm:w-96 lg:w-[400px] text-xl md:text-2xl border-red-950 font-bold hover:bg-gradient-to-br from-yellow-500 to-orange-600 hover:text-white transition duration-300 ease-in-out transform hover:scale-105 hover:border-2 hover:border-black">
               Sign Up
             </button>
           </div>
+          )}
 
           {/* Or Divider */}
           {/* <div className="or h-10 flex justify-center items-center mt-5">

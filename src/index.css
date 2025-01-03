@@ -22,11 +22,32 @@ input::placeholder{
   color : black
 }
 
-.photos{
+.cardr{
+   /* background-color: red; */
+   transform: rotateY(180deg);
+   
+}
+
+.cardr .back{
+   /* background-color: red; */
+   /* transform: rotateY(180deg); */
+   background-color: blue;
+   transform: rotateY(180deg);
+   
+}
+.cardr:hover .front {
+transform: rotateY(180deg);
+}
+.cardr:hover .back {
+transform: rotateY(360deg);
+}
+
+
+/* .photos{ */
   /* height: 100px;
   background-color: red; */
   /* transform: translate3d(0% , -50px , 100px); */
-}
+/* } */
 /* :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;

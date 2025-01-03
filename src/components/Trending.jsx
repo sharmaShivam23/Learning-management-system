@@ -144,7 +144,8 @@ const Trending = () => {
             initial={animationVariants[item.ani].initial}
             whileInView={animationVariants[item.ani].animate}
             transition={animationVariants[item.ani].transition}
-            className="cards text-center relative cursor-pointer"
+            // viewport={{ once: true }}
+            className="cardr text-center transform  relative cursor-pointer"
           >
             <div
               className={`cards text-center relative -z-10 ${item}   cursor-pointer`}
