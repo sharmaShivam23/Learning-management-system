@@ -5,7 +5,6 @@ import axios from 'axios'
 import { RiLockPasswordFill } from "react-icons/ri";
 
 import {  useNavigate } from 'react-router-dom';
-import { useAuth0 } from '@auth0/auth0-react';
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Loading2 from './Loading2';
@@ -14,7 +13,6 @@ import Loading2 from './Loading2';
 
 const Login = () => {
 
-  const {user , loginWithRedirect , logout} = useAuth0();
   
   
   let navigate = useNavigate()
