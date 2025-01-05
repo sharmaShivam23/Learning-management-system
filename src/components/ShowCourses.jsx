@@ -236,6 +236,7 @@ const News = () => {
   const [interest, setInterest] = useState("");
   const [courseTitle, setCourseTitle] = useState("");
 
+   useEffect(() => {
   const fetchArticles = async () => {
     setIsLoading(true);
     setError(null);
@@ -245,10 +246,10 @@ const News = () => {
         {
           profile_details: {
             interest,
-            goal: "become a data scientist, full stack , backend developer , machine learning , ",
+            goal: "become a data scientist, full stack  , machine learning , ",
             experience: "beginner",
             skills:
-              "python, machine learning , java , javascript , c , c++ , nodejs , react js",
+              "python, machine learning",
           },
         },
         {
@@ -266,7 +267,11 @@ const News = () => {
       setIsLoading(false);
     }
   };
+  fetchArticles()
+},[interest])
+  
 
+  useEffect(() => {
   const fetchCourses = async () => {
     setIsLoading(true);
     try {
@@ -281,6 +286,8 @@ const News = () => {
       setIsLoading(false);
     }
   };
+  fetchCourses()
+},[])
 
   const handleEnroll = async () => {
     const token = localStorage.getItem("token");
@@ -300,13 +307,14 @@ const News = () => {
     }
   };
 
-  useEffect(() => {
-    if (interest) {
-      fetchArticles();
-    } else {
-      fetchCourses();
-    }
-  }, [interest]);
+
+  // useEffect(() => {
+  //   if (interest) {
+  //     fetchArticles();
+  //   } else {
+  //     fetchCourses();
+  //   }
+  // }, [interest]);
 
   const handleCourse = (course) => {
     const { course_title, title, url } = course;

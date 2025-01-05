@@ -7,7 +7,7 @@ import { MdAccessTimeFilled } from "react-icons/md";
 import { IoStar } from "react-icons/io5";
 import Footer from './Footer';
 import newsimage from '../Images/newsimage.jpeg';
-import card1 from '../Images/card1.png';
+import profile1 from '../Images/profile.jpg';
 import { Link } from 'react-router-dom';
 import { useContext } from 'react';
 import { ShowCardContext } from "../CreateContext";
@@ -74,7 +74,8 @@ export default function Profile({ setUsername }) {
             header
           );
           console.log('User details sent to profile API successfully.');
-        } catch (error) {
+        } 
+        catch (error) {
           console.error('Error sending user details to profile API:', error);
         }
       }
@@ -129,7 +130,7 @@ export default function Profile({ setUsername }) {
       <div className="mx-auto text-center font-bold mt-8 flex justify-center items-center flex-col">
         <h1 className="text-3xl text-red-950 mb-4">A lifelong learner on a journey to create and inspire</h1>
         <div className="pht bg-orange-500 h-80 w-80 rounded-full mt-5 object-cover overflow-hidden flex justify-center items-center">
-          <img src={card1} className="object-cover h-80" alt="" />
+          <img src={profile} className="object-cover h-80" alt="" />
         </div>
         <div className="name flex justify-evenly items-center flex-col">
           <div className="user flex justify-between gap-20 items-center mt-5">
@@ -262,10 +263,10 @@ export default function Profile({ setUsername }) {
       <h1 className="text-2xl sm:text-3xl text-red-950 mb-4">
         A lifelong learner on a journey to create and inspire
       </h1>
-      <div className="pht bg-orange-500 h-40 w-40 sm:h-60 sm:w-60 md:h-80 md:w-80 rounded-full mt-5 overflow-hidden flex justify-center items-center">
-        <img src={card1} className="object-cover h-full w-full" alt="" />
+      <div className="pht border-2 border-black h-40 w-40 sm:h-60 sm:w-60 md:h-80 md:w-80 rounded-full mt-5 overflow-hidden flex justify-center items-center">
+        <img src={profile1} className="object-cover h-full w-full" alt="" />
       </div>
-      <div className="name flex flex-col gap-5 items-center mt-5 w-full sm:w-3/4 md:w-1/2">
+      <div className="name flex font-serif tracking-normal flex-col gap-5 items-center mt-5 w-full   lg:w-[43vw]">
         {[
           { label: "UserName", value: profile?.username },
           { label: "E-mail", value: profile?.email },
@@ -284,7 +285,7 @@ export default function Profile({ setUsername }) {
             <div className="text-lg sm:text-2xl font-bold tracking-wider">
               {item.label}
             </div>
-            <div className="h-10 border-2 border-black w-full sm:w-3/4 px-3 flex justify-center items-center rounded-xl bg-orange-500 text-lg sm:text-2xl">
+            <div className="h-10 border-2 border-black w-full sm:w-2/4 px-3 flex justify-center items-center rounded-xl bg-orange-500 text-lg sm:text-xl">
               {item.value}
             </div>
           </div>
@@ -333,7 +334,7 @@ export default function Profile({ setUsername }) {
         {obj.map((item, index) => (
           <div
             key={index}
-            className="card w-full sm:w-72 rounded-lg overflow-hidden hover:scale-105 transform transition"
+            className="card w-full sm:w-72 rounded-lg overflow-hidden hover:scale-105 flex justify-center items-center flex-col transform transition"
           >
             <img
               src={item.img}

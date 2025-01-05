@@ -46,18 +46,36 @@ const Login = () => {
     }
     
     catch (error) {
+        // if (error.response) {
+        //     console.error("Error Response:", error.response.data);
+        //     setPassValid(true)
+        // }
+        //  else if (error.request) {
+        //     console.error("No Response:", error.request);
+        // }
+        //  else {
+        //     console.error("Error:", error.message);
+        //     toast.error(error.message)
+        //     setError(error)
+        // console.log(error);
         if (error.response) {
-            console.error("Error Response:", error.response.data);
+            console.error("Error Response:", error.response.data.message);
+            toast.error(error.response.data.message)
             setPassValid(true)
         }
-         else if (error.request) {
+          else if (error.request) {
             console.error("No Response:", error.request);
+            toast.error(error.request)
+            toast.error(error.request.data.message)
+            toast.error(error.request.message)
+            
         }
-         else {
-            console.error("Error:", error.message);
-            setError(error)
+        else{
+        console.log(error.message);
+        toast.error(error.message)
         }
-    }
+      }
+    
     finally{
       setLoading(false)
     }
@@ -69,6 +87,7 @@ const Login = () => {
 
   return (
     <>
+    <ToastContainer/>
       <h1 className='text-4xl text-center font-bold  bg-red-950 py-5 text-white mt-10'>Login</h1>
       {/* <button onClick={(e => logout())}>Logout</button> */}
       <form onSubmit={handleSubmit} className='flex justify-center items-center flex-col'>
@@ -142,8 +161,10 @@ const Login = () => {
               Log in
             </button>
             </div> */}
-             {error && <p className="text-2xl text-red-600 text-center">{`Failed to login : ${error}  Try Again`}</p>}
-             {passvalid && <p className="text-2xl text-red-600 text-center">{`Either email or password is wrong? User Not Found`}</p>}
+             {/* {error && <p className="text-2xl text-red-600 text-center">{`Failed to login : ${error}  Try Again`}</p>}
+             {passvalid && <p className="text-2xl text-red-600 text-center">{`Failed to login : ${error}  Try Again`}</p>} */}
+             {/* {passvalid && <p className="text-2xl text-red-600 text-center">{`${error.response.data.message}`}</p>} */}
+             {/* {passvalid && <p className="text-2xl text-red-600 text-center">{`Either email or password is wrong? User Not Found`}</p>} */}
 
             <div className="already mt-8 text-center">
             <span className="text-lg text-black font-bold">

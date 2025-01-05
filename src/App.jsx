@@ -89,7 +89,7 @@ function App() {
   useEffect(() => {
     const time = setInterval(() => {
       setLoading(false);
-    }, 3000);
+    }, 4000);
 
     return () => clearInterval(time);
   }, []);
