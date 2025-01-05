@@ -1,5 +1,5 @@
 
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { GrNext } from "react-icons/gr";
@@ -45,7 +45,6 @@ export default function Profile({ setUsername }) {
         .then((res) => {
           setUsername(res.data.username);
           setProfile(res.data);
-          console.log(profile.email);
         })
         .catch((err) => {
           console.log("error", err);
@@ -83,7 +82,14 @@ export default function Profile({ setUsername }) {
 
     handleClick();
     sendAuthDetailsToAPI();
-  }, [user]); // Dependency added for `user`
+  }, []); 
+
+
+//   useMemo(() => {
+//   useEffect(() => {
+//     toast.success("Login Successful");
+//   // },[])
+// },[])
 
   const handleRangeChange = (e, index) => {
     const newRatings = [...ratings];
@@ -122,7 +128,6 @@ export default function Profile({ setUsername }) {
   ];
 
   if (error) return <p className="text-red-500 text-2xl text-center">{` failed to fetch data of your profile : ${error}`}</p>;
-
   return (
   <>
    {/* <ToastContainer/>
@@ -368,11 +373,14 @@ export default function Profile({ setUsername }) {
       </div>
     </div>
   </div>
+
   <Footer />
 </>
 
     </>
+
   );
+
 
 }
 

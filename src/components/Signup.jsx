@@ -53,8 +53,10 @@ const Signup = () => {
         .then((res) => {
           console.log(res);
           toast.success(res.data.message);
+          console.log(res.data.message);
           if(res.status === 201){
           navigate("/login");
+          toast.success(res.data.message);
           }
           setLoading(false)
         })
