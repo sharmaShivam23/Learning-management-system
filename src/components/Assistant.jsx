@@ -63,12 +63,12 @@ const Assistant = () => {
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             className="w-full text-white text-xl p-2 border borde bg-gradient-to-br rounded-xl shadow-lg shadow-orange-500 from-yellow-500 to-orange-600 "
-            placeholder="what do you want to learn."
+            placeholder="Enter query."
           />
         </div>
 
         <div className="space-y-2 mt-5 w-full">
-          <label className="block font-bold">Enter your query</label>
+          <label className="block font-bold">Enter your goal</label>
           <input
             type="text"
             value={goal}
@@ -79,7 +79,7 @@ const Assistant = () => {
         </div>
 
         <div className="space-y-2 mt-5 w-full">
-          <label className="block font-bold">Enter your query</label>
+          <label className="block font-bold">What you want to learn</label>
           <input
             type="text"
             value={completed_courses}
