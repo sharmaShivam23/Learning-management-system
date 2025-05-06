@@ -259,7 +259,8 @@ const News = () => {
         }
       );
       setrecommend(response.data.recommendations);
-      console.log(response.data.recommendations);
+      // console.log(response);
+      console.log(response.data.recommendations[0]);
       
     } catch (err) {
       setError("An error occurred while fetching articles.");

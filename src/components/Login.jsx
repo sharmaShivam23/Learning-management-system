@@ -41,6 +41,8 @@ const Login = () => {
             }
         );
         localStorage.setItem("token" , response.data.token);
+        console.log(response);
+        
         console.log("Response Data:", response.data);
         navigate("/profile")
     }

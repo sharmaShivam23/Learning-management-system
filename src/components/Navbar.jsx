@@ -101,11 +101,13 @@ const Navbar = ({ username }) => {
               </Link>
               <span className="absolute left-0 bottom-0 w-0 h-[4px] bg-black transition-all ease-in-out duration-500 group-hover:w-full"></span>
             </li>
+            {token && (
             <li className="relative group"><Link to="/profile" className="transition-all ease-in-out duration-300 text-black" >
                 Profile
               </Link>
               <span className="absolute left-0 bottom-0 w-0 h-[4px] bg-black transition-all ease-in-out duration-500 group-hover:w-full"></span>
             </li>
+           )}
             <li className="relative group hidden"><Link to="/showCourses" className="transition-all ease-in-out duration-300 text-black" >
                 showCourses
               </Link>

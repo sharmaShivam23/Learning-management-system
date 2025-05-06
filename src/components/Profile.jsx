@@ -40,9 +40,11 @@ export default function Profile({ setUsername }) {
         navigate("/signup");
       }
 
-      axios
+    const res =   axios
         .get('https://lms-j25h.onrender.com/api/auth/profile', header)
         .then((res) => {
+          console.log(res);
+          
           setUsername(res.data.username);
           setProfile(res.data);
         })

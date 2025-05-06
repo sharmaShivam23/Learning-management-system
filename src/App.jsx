@@ -77,12 +77,10 @@ import Password from "./components/Password";
 import ShowCourses from "./components/ShowCourses";
 import Update from "./components/Update";
 import Assistant from "./components/Assistant";
-// import { EnrolledCoursesProvider } from "./EnrolledCoursesContext.jsx";
 import { ShowCardProvider } from "./CreateContext";
 import Start from "./components/Start";
 
 function App() {
-  // const { user , loginWithRedirect} = useAuth0()
   const [username, setUsername] = useState(null);
   const [loading, setLoading] = useState(true);
 
